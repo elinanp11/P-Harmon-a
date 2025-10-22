@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Crear cuenta | Chicas Bienestar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Add Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Add Firebase SDK -->
+  <script type="module" src="assets/js/auth.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Chicas<span>Bienestar</span></a>
+      <div class="header-minimal">
+        <p class="header-phrase">Comienza tu proyecto de vida ✨</p>
+        <div class="header-actions">
+          <a class="btn btn--ghost" href="login.html">Ya tengo cuenta</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="auth-card">
+    <h1 style="margin-top:0;color:#6a3971;font-family:'Playfair Display',serif">Crear cuenta</h1>
+    <form id="registerForm" data-register>
+      <div class="form__row">
+        <label>Nombre
+          <input type="text" name="nombre" id="nombre" required />
+        </label>
+      </div>
+      <div class="form__row">
+        <label>Apellido
+          <input type="text" name="apellido" id="apellido" required />
+        </label>
+      </div>
+      <div class="form__row">
+        <label>Correo electrónico
+          <input type="email" name="email" id="email" required />
+        </label>
+      </div>
+      <div class="form__row">
+        <label>Contraseña (mínimo 6 caracteres)
+          <input type="password" name="password" id="password" required minlength="6" />
+        </label>
+      </div>
+      <div class="form__row">
+        <label>Confirmar contraseña
+          <input type="password" name="confirm-password" id="confirm-password" required minlength="6" />
+        </label>
+      </div>
+      <div class="form__actions">
+        <button type="submit" class="btn btn--primary">
+          <i class="fas fa-user-plus"></i> Crear cuenta
+        </button>
+      </div>
+      <div id="error-message" class="error-message" style="color: red; margin-top: 10px; display: none;"></div>
+      <div class="form-footer">
+        <p>¿Ya tienes una cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+      </div>
+    </form>
+  </main>
+
+  <script>
+    // Add client-side form validation
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('registerForm');
+      const errorDiv = document.getElementById('error-message');
+      
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const password = document.getElementById('password').value;
+          const confirmPassword = document.getElementById('confirm-password').value;
+          
+          // Basic client-side validation
+          if (password !== confirmPassword) {
+            showError('Las contraseñas no coinciden');
+            return false;
+          }
+          
+          if (password.length < 6) {
+            showError('La contraseña debe tener al menos 6 caracteres');
+            return false;
+          }
+          
+          // If validation passes, the form will be submitted and handled by auth.js
+          return true;
+        });
+      }
+      
+      function showError(message) {
+        errorDiv.textContent = message;
+        errorDiv.style.display = 'block';
+        setTimeout(() => {
+          errorDiv.style.display = 'none';
+        }, 5000);
+      }
+    });
+  </script>
+</body>
+</html>

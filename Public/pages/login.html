@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Iniciar sesión | Chicas Bienestar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Chicas<span>Bienestar</span></a>
+      <div class="header-minimal">
+        <p class="header-phrase">Bienvenida de vuelta 💖</p>
+        <div class="header-actions">
+          <a class="btn btn--primary" href="register.html">Crear cuenta</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="auth-card">
+    <h1 style="margin-top:0;color:#6a3971;font-family:'Playfair Display',serif">Iniciar sesión</h1>
+    <form data-form-login>
+      <div class="form__row">
+        <label>Correo electrónico
+          <input type="email" name="email" required placeholder="tucorreo@correo.com" />
+        </label>
+      </div>
+      <div class="form__row">
+        <label>Contraseña
+          <input type="password" name="password" required placeholder="••••••••" />
+        </label>
+      </div>
+      <button class="btn btn--primary" type="submit">Entrar</button>
+      <p class="form-msg" data-msg></p>
+    </form>
+  </main>
+
+  <script src="assets/js/auth.js" defer></script>
+</body>
+</html>
