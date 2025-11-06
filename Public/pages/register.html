@@ -1,108 +1,369 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Crear cuenta | Chicas Bienestar</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <!-- Add Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Add Firebase SDK -->
-  <script type="module" src="assets/js/auth.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Chicas Bienestar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --tickle-me-pink: #F283AF;
+            --champagne: #FBF4EB;
+            --blush: #FBD9E5;
+            --cherry-blossom: #FBD9E5;
+            --raspberry-rose: #C43670;
+            --sunset: #F3CC97;
+            --white: #FFFFFF;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--raspberry-rose);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: var(--tickle-me-pink);
+        }
+
+        /* Main Content */
+        .auth-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            background-color: var(--champagne);
+        }
+
+        .auth-card {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 500px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .auth-title {
+            color: var(--raspberry-rose);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .auth-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--tickle-me-pink);
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--tickle-me-pink);
+            box-shadow: 0 0 0 3px rgba(242, 131, 175, 0.2);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--tickle-me-pink);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background-color: var(--raspberry-rose);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(242, 131, 175, 0.4);
+        }
+
+        .auth-footer {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .auth-footer a {
+            color: var(--raspberry-rose);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            background-color: #fde8e8;
+            padding: 0.8rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .success-message {
+            color: #27ae60;
+            background-color: #e8f8f0;
+            padding: 0.8rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .auth-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .auth-title {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">Chicas<span>Bienestar</span></a>
-      <div class="header-minimal">
-        <p class="header-phrase">Comienza tu proyecto de vida ✨</p>
-        <div class="header-actions">
-          <a class="btn btn--ghost" href="login.html">Ya tengo cuenta</a>
+    <!-- Header -->
+    <header>
+        <a href="../index.html" class="logo">
+            <i class="fas fa-spa"></i>
+            <span>Chicas Bienestar</span>
+        </a>
+    </header>
+
+    <!-- Main Content -->
+    <main class="auth-container">
+        <div class="auth-card">
+            <h1 class="auth-title">Crear Cuenta</h1>
+            <p class="auth-subtitle">Únete a nuestra comunidad de bienestar</p>
+            
+            <div id="error-message" class="error-message"></div>
+            <div id="success-message" class="success-message"></div>
+            
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="name">Nombre completo</label>
+                    <input type="text" id="name" class="form-control" placeholder="Ingresa tu nombre completo" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" class="form-control" placeholder="tucorreo@ejemplo.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" class="form-control" placeholder="Crea una contraseña segura" minlength="6" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirm-password">Confirmar contraseña</label>
+                    <input type="password" id="confirm-password" class="form-control" placeholder="Confirma tu contraseña" minlength="6" required>
+                </div>
+                
+                <button type="submit" class="btn" id="register-btn">
+                    <span id="btn-text">Registrarse</span>
+                    <div id="spinner" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i> Creando cuenta...
+                    </div>
+                </button>
+            </form>
+            
+            <p class="auth-footer">
+                ¿Ya tienes una cuenta? <a href="login.html">Inicia sesión aquí</a>
+            </p>
         </div>
-      </div>
-    </div>
-  </header>
+    </main>
 
-  <main class="auth-card">
-    <h1 style="margin-top:0;color:#6a3971;font-family:'Playfair Display',serif">Crear cuenta</h1>
-    <form id="registerForm" data-register>
-      <div class="form__row">
-        <label>Nombre
-          <input type="text" name="nombre" id="nombre" required />
-        </label>
-      </div>
-      <div class="form__row">
-        <label>Apellido
-          <input type="text" name="apellido" id="apellido" required />
-        </label>
-      </div>
-      <div class="form__row">
-        <label>Correo electrónico
-          <input type="email" name="email" id="email" required />
-        </label>
-      </div>
-      <div class="form__row">
-        <label>Contraseña (mínimo 6 caracteres)
-          <input type="password" name="password" id="password" required minlength="6" />
-        </label>
-      </div>
-      <div class="form__row">
-        <label>Confirmar contraseña
-          <input type="password" name="confirm-password" id="confirm-password" required minlength="6" />
-        </label>
-      </div>
-      <div class="form__actions">
-        <button type="submit" class="btn btn--primary">
-          <i class="fas fa-user-plus"></i> Crear cuenta
-        </button>
-      </div>
-      <div id="error-message" class="error-message" style="color: red; margin-top: 10px; display: none;"></div>
-      <div class="form-footer">
-        <p>¿Ya tienes una cuenta? <a href="login.html">Inicia sesión aquí</a></p>
-      </div>
-    </form>
-  </main>
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBoBaMvAenO3PMR5EUfaWUIsFi_AYqAjwQ",
+            authDomain: "my-proyects-b614c.firebaseapp.com",
+            projectId: "my-proyects-b614c",
+            storageBucket: "my-proyects-b614c.appspot.com",
+            messagingSenderId: "646388078931",
+            appId: "1:646388078931:web:eed7d8661614aa4ffee9a6",
+            measurementId: "G-L1TM6S4QKS"
+        };
 
-  <script>
-    // Add client-side form validation
-    document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('registerForm');
-      const errorDiv = document.getElementById('error-message');
-      
-      if (form) {
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          
-          const password = document.getElementById('password').value;
-          const confirmPassword = document.getElementById('confirm-password').value;
-          
-          // Basic client-side validation
-          if (password !== confirmPassword) {
-            showError('Las contraseñas no coinciden');
-            return false;
-          }
-          
-          if (password.length < 6) {
-            showError('La contraseña debe tener al menos 6 caracteres');
-            return false;
-          }
-          
-          // If validation passes, the form will be submitted and handled by auth.js
-          return true;
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Form elements
+        const registerForm = document.getElementById('register-form');
+        const errorMessage = document.getElementById('error-message');
+        const successMessage = document.getElementById('success-message');
+        const registerBtn = document.getElementById('register-btn');
+        const btnText = document.getElementById('btn-text');
+        const spinner = document.getElementById('spinner');
+
+        // Handle form submission
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            // Reset messages
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+            
+            // Validate passwords match
+            if (password !== confirmPassword) {
+                showError('Las contraseñas no coinciden');
+                return;
+            }
+            
+            // Show loading state
+            btnText.style.display = 'none';
+            spinner.style.display = 'block';
+            registerBtn.disabled = true;
+            
+            try {
+                // Create user with email and password
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+                
+                // Update user profile with display name
+                await updateProfile(user, {
+                    displayName: name
+                });
+                
+                // Show success message
+                showSuccess('¡Cuenta creada exitosamente! Redirigiendo...');
+                
+                // Redirect to dashboard or home page after a short delay
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
+                
+            } catch (error) {
+                // Handle errors
+                let errorMessage = 'Error al crear la cuenta. Inténtalo de nuevo.';
+                
+                switch(error.code) {
+                    case 'auth/email-already-in-use':
+                        errorMessage = 'Este correo electrónico ya está en uso.';
+                        break;
+                    case 'auth/invalid-email':
+                        errorMessage = 'El correo electrónico no es válido.';
+                        break;
+                    case 'auth/weak-password':
+                        errorMessage = 'La contraseña debe tener al menos 6 caracteres.';
+                        break;
+                    case 'auth/network-request-failed':
+                        errorMessage = 'Error de conexión. Verifica tu conexión a internet.';
+                        break;
+                }
+                
+                showError(errorMessage);
+                
+                // Reset button state
+                btnText.style.display = 'block';
+                spinner.style.display = 'none';
+                registerBtn.disabled = false;
+            }
         });
-      }
-      
-      function showError(message) {
-        errorDiv.textContent = message;
-        errorDiv.style.display = 'block';
-        setTimeout(() => {
-          errorDiv.style.display = 'none';
-        }, 5000);
-      }
-    });
-  </script>
+        
+        // Helper function to show error messages
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+        }
+        
+        // Helper function to show success messages
+        function showSuccess(message) {
+            successMessage.textContent = message;
+            successMessage.style.display = 'block';
+        }
+    </script>
 </body>
 </html>
