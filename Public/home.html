@@ -71,7 +71,9 @@
         .hero {
             background: linear-gradient(rgba(251, 244, 235, 0.9), rgba(251, 244, 235, 0.9)), 
                         url('https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
-            height: 80vh;
+            min-height: calc(100vh - 100px);
+            display: flex;
+            align-items: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -436,16 +438,32 @@
     </style>
 </head>
 <body>
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
+    <script>
+        // Load header
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+                // Initialize any header scripts after loading
+                const script = document.createElement('script');
+                script.src = 'components/header.js';
+                document.body.appendChild(script);
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" style="margin-top: 80px; padding-top: 20px;">
         <h1>¡Bienvenida a tu espacio de bienestar!</h1>
         <p>Descubre contenido personalizado para tu crecimiento personal, belleza, fitness y mucho más.</p>
         <div class="hero-actions">
             <a href="belleza.html" class="btn btn-primary">
                 <i class="fas fa-spa"></i> Explorar Belleza
             </a>
-            <a href="bienestar.html" class="btn btn-ghost">
-                <i class="fas fa-heart"></i> Ver Bienestar
+            <a href="comunidad.html" class="btn btn-ghost">
+                <i class="fas fa-heart"></i> Comunidad
             </a>
         </div>
     </section>

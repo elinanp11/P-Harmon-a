@@ -992,49 +992,8 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-about">
-                <a href="img/logo.jpg" class="footer-logo">
-                    <img src="assets/img/logo.jpg" alt="P-Harmonia Logo" style="height: 35px; width: auto; margin-right: 8px; vertical-align: middle;">
-                    P-Harmonia
-                </a>
-                <p>Tu espacio de bienestar integral donde encontrarás todo lo que necesitas para sentirte y lucir increíble, tanto por dentro como por fuera.</p>
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-pinterest-p"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-links">
-                <h3>Enlaces Rápidos</h3>
-                <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="belleza.html">Belleza</a></li>
-                    <li><a href="#">Fitness</a></li>
-                    <li><a href="#">Finanzas</a></li>
-                    <li><a href="moda.html">Moda</a></li>
-                    <li><a href="#">Comunidad</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-newsletter">
-                <h3>Newsletter</h3>
-                <p>Suscríbete para recibir consejos exclusivos y ofertas especiales directamente en tu bandeja de entrada.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Tu correo electrónico" required>
-                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                </form>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2025 P-Harmonia. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+    <!-- Footer Component -->
+    <div id="footer-container"></div>
 
     <!-- AOS Animation -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -1085,53 +1044,7 @@
         });
     </script>
 
-    <!-- Special Footer for Index -->
-    <footer class="index-footer">
-        <div class="footer-wave">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512,48,583,67.8c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" 
-                      opacity="0.1" fill="#fff"></path>
-                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,141.56,72.19,6.35,10.8,14.74,20.45,24.1,29.2V0Z" 
-                      opacity="0.1" fill="#fff"></path>
-                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" 
-                      fill="#fff"></path>
-            </svg>
-        </div>
-        
-        <div class="footer-content">
-            <div class="footer-main">
-                <div class="footer-brand">
-                    <img src="assets/img/logo.jpg" alt="P-Harmonia Logo">
-                    <h3>P-Harmonia</h3>
-                    <p>Transformando vidas a través del equilibrio y bienestar</p>
-                </div>
-                
-                <div class="footer-cta">
-                    <h4>¿Lista para comenzar tu viaje?</h4>
-                    <a href="register.html" class="btn btn-primary">Empieza Ahora</a>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <div class="footer-links">
-                    <a href="privacidad.html">Privacidad</a>
-                    <span>•</span>
-                    <a href="terminos.html">Términos</a>
-                    <span>•</span>
-                    <a href="contacto.html">Contacto</a>
-                </div>
-                
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
-                </div>
-                
-                <p class="copyright">&copy; 2024 P-Harmonia. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
+    <!-- Footer styles -->
     <style>
     /* Index Footer Styles */
     .index-footer {
@@ -1322,6 +1235,24 @@
         }
     }
     </style>
+
+    <!-- Load Footer Component -->
+    <script>
+        // Función para cargar el footer
+        function loadFooter() {
+            fetch('components/footer.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('footer-container').innerHTML = html;
+                })
+                .catch(error => {
+                    console.error('Error al cargar el footer:', error);
+                });
+        }
+
+        // Cargar el footer cuando el DOM esté completamente cargado
+        document.addEventListener('DOMContentLoaded', loadFooter);
+    </script>
 </body>
 </html>
  

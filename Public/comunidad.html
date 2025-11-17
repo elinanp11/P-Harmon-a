@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P-Harmonía - Comunidad</title>
+    <meta name="description" content="Conéctate con nuestra comunidad de mujeres, comparte tus logros y encuentra apoyo en tu viaje de bienestar.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        /* Color Variables */
+        :root {
+            --primary-color: #6C63FF;
+            --dark-bg: #0F172A;
+            --darker-bg: #0A1122;
+            --text-light: #E2E8F0;
+            --text-muted: #94A3B8;
+            --white: #FFFFFF;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+        }
+
+        /* Header Styles */
+        .main-header {
+            background-color: var(--dark-bg);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Ensure body has no margin/padding that could affect header positioning */
+        body {
+            margin: 0;
+            padding: 0;
+            padding-top: 80px;
+            font-family: 'Poppins', sans-serif;
+            background-color: #F8FAFC;
+            color: #333;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.5rem;
+            height: 40px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: var(--transition);
+            display: inline-block;
+            line-height: 1;
+            font-weight: 500;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+        
+        .nav-link:hover {
+            color: var(--white);
+            opacity: 1;
+        }
+
+        .nav-link:hover {
+            color: var(--raspberry-rose);
+        }
+
+        /* Header Icons */
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            margin-left: 30px;
+        }
+        
+        .header-icons a {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+        
+        .header-icons a:hover {
+            color: var(--primary-color);
+            opacity: 1;
+        }
+        
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+        /* Footer Styles */
+        .main-footer {
+            background-color: var(--darker-bg);
+            color: var(--text-light);
+            padding: 80px 0 0;
+            margin-top: 60px;
+            width: 100%;
+            clear: both;
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .footer-section h4 {
+            color: var(--white);
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            margin-right: 10px;
+        }
+        
+        .footer-logo span {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-logo img {
+            height: 35px;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 8px;
+        }
+
+        .footer-tagline {
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact {
+            margin-top: 20px;
+        }
+
+        .footer-contact li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .footer-contact i {
+            margin-right: 12px;
+            color: var(--primary-color);
+            margin-top: 5px;
+            font-size: 1rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            width: 100%;
+            box-sizing: border-box;
+            background-color: rgba(0, 0, 0, 0.2);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            color: var(--raspberry-rose);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            color: var(--tickle-me-pink);
+        }
+
+        /* Community Section Spacing */
+        .community-section {
+            padding: 40px 0 100px;
+            margin-top: 80px;
+            min-height: calc(100vh - 300px);
+            background-color: #F8FAFC;
+        }
+
+        /* Rest of your existing styles */
+        :root {
+            /* Main Colors */
+            --tickle-me-pink: #F283AF;
+            --champagne: #FBF4EB;
+            --blush: #FBD9E5;
+            --raspberry-rose: #C43670;
+            --white: #FFFFFF;
+            --dark-color: #333333;
+            --text-light: #666666;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+            background-color: var(--champagne);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Header Styles */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-top: 2rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--raspberry-rose);
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .section-description {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        /* Community Grid */
+        .community-grid {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        /* Create Post Card */
+        .create-post-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+        
+        .post-input-container {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--blush);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--raspberry-rose);
+            font-size: 1.5rem;
+        }
+        
+        .post-input {
+            flex: 1;
+            min-height: 100px;
+            padding: 1rem;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            resize: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+        }
+        
+        .post-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+        
+        .post-actions-left {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .action-btn {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            transition: var(--transition);
+            font-size: 0.85em;
+        }
+        
+        .action-btn:hover {
+            color: var(--raspberry-rose);
+        }
+        
+        .btn-post {
+            background: var(--raspberry-rose);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .btn-post:hover {
+            background: var(--tickle-me-pink);
+            transform: translateY(-2px);
+        }
+        
+        /* Sticker Picker */
+        .sticker-picker {
+            display: none;
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            max-height: 300px;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .sticker-tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+        }
+        
+        .sticker-tab {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+        
+        .sticker-tab.active {
+            border-bottom: 2px solid var(--raspberry-rose);
+            color: var(--raspberry-rose);
+            font-weight: 500;
+        }
+        
+        .sticker-picker.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .sticker-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+            gap: 0.8rem;
+            padding: 0.5rem 0;
+        }
+        
+        .sticker-category {
+            display: none;
+        }
+        
+        .sticker-category.active {
+            display: block;
+        }
+        
+        .sticker-upload-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 0.5rem;
+            background: var(--champagne);
+            border: 2px dashed var(--raspberry-rose);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .sticker-upload-btn:hover {
+            background: var(--blush);
+        }
+        
+        .sticker-upload-btn i {
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+            color: var(--raspberry-rose);
+        }
+        
+        .sticker-upload-input {
+            display: none;
+        }
+        
+        .sticker {
+            font-size: 1.8rem;
+            cursor: pointer;
+            text-align: center;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1;
+            background: #f8f8f8;
+        }
+        
+        .sticker img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .sticker:hover {
+            background: var(--blush);
+            transform: scale(1.1);
+        }
+        
+        /* Post Card */
+        .post-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1rem;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+        
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .post-user {
+            display: flex;
+            align-items: center;
+        }
+        
+        .post-user-info {
+            margin-left: 1rem;
+        }
+        
+        .post-username {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 0.2rem;
+        }
+        
+        .post-time {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+        
+        .post-more {
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .post-more:hover {
+            background: var(--blush);
+            color: var(--raspberry-rose);
+        }
+        
+        .post-content {
+            margin: 0.75rem 0;
+            line-height: 1.5;
+            font-size: 0.95em;
+        }
+        
+        .post-sticker {
+            font-size: 3rem;
+            margin: 1rem 0;
+            display: inline-block;
+        }
+        
+        .post-image {
+            width: 100%;
+            border-radius: 6px;
+            margin: 0.75rem 0;
+            max-height: 300px;
+            object-fit: cover;
+        }
+        
+        .post-video {
+            width: 100%;
+            border-radius: 8px;
+            margin: 1rem 0;
+            aspect-ratio: 16/9;
+            background: #000;
+        }
+        
+        .post-actions {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 0.75rem;
+            margin-top: 0.75rem;
+            font-size: 0.85em;
+        }
+        
+        .post-action {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+        
+        .post-action:hover {
+            background: var(--blush);
+            color: var(--raspberry-rose);
+        }
+        
+        .post-action.liked {
+            color: var(--raspberry-rose);
+        }
+        
+        .post-comments {
+            margin-top: 0.75rem;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 0.75rem;
+            font-size: 0.9em;
+        }
+        
+        .comment {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9em;
+        }
+        
+        .comment-avatar {
+            width: 28px;
+            height: 28px;
+            background: #f0f0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #999;
+            flex-shrink: 0;
+        }
+        
+        .comment-content {
+            background: #f9f9f9;
+            padding: 0.5rem 0.8rem;
+            border-radius: 15px;
+            max-width: 90%;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+        
+        .comment-user {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .comment-text {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .comment-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+        
+        .comment-action {
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .comment-action:hover {
+            color: var(--raspberry-rose);
+        }
+        
+        .add-comment {
+            display: flex;
+            margin-top: 1rem;
+        }
+        
+        .comment-input {
+            flex: 1;
+            padding: 0.6rem 1rem;
+            border: 1px solid #eee;
+            border-radius: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+        }
+        
+        .btn-comment {
+            background: var(--raspberry-rose);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .btn-comment:hover {
+            background: var(--tickle-me-pink);
+            transform: translateY(-2px);
+        }
+        
+        /* Sidebar */
+        .community-sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+        
+        .sidebar-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 1.5rem;
+        }
+        
+        .sidebar-title {
+            font-size: 1.2rem;
+            color: var(--raspberry-rose);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .trending-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tag {
+            background: var(--blush);
+            color: var(--raspberry-rose);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .tag:hover {
+            background: var(--tickle-me-pink);
+            color: white;
+        }
+        
+        .online-users {
+            margin-top: 1rem;
+        }
+        
+        .user-item {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .user-item:last-child {
+            border-bottom: none;
+        }
+        
+        .user-avatar-sm {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--blush);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.8rem;
+            color: var(--raspberry-rose);
+            font-size: 1rem;
+            position: relative;
+        }
+        
+        .user-avatar-sm.online::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #4caf50;
+            border-radius: 50%;
+            border: 2px solid white;
+            bottom: 0;
+            right: 0;
+        }
+        
+        .user-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .upcoming-events {
+            margin-top: 1rem;
+        }
+        
+        .event-item {
+            display: flex;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .event-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .event-date {
+            background: var(--blush);
+            color: var(--raspberry-rose);
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .event-day {
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        
+        .event-month {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+        
+        .event-details h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .event-time {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .community-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .community-sidebar {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+                position: static;
+            }
+            
+            .sidebar-card {
+                margin-bottom: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .community-sidebar {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .post-actions {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .post-action {
+                justify-content: flex-start;
+                padding: 0.5rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
+    <script>
+        // Load header
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+                // Initialize any header scripts after loading
+                const script = document.createElement('script');
+                script.src = 'components/header.js';
+                document.body.appendChild(script);
+                
+                // Add active class to current page link
+                document.addEventListener('DOMContentLoaded', function() {
+                    const currentPage = window.location.pathname.split('/').pop() || 'home.html';
+                    const navLinks = document.querySelectorAll('.nav-link');
+                    navLinks.forEach(link => {
+                        const linkHref = link.getAttribute('href');
+                        if (linkHref === currentPage || 
+                            (currentPage === '' && linkHref === 'home.html') ||
+                            (currentPage === 'comunidad.html' && linkHref === 'comunidad.html')) {
+                            link.classList.add('active');
+                        }
+                    });
+                });
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+    
+    <!-- Community Section -->
+    <section class="community-section" style="padding-top: 100px; min-height: calc(100vh - 100px);">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h1 class="section-title">Comunidad P-Harmonía</h1>
+                <p class="section-description">Conéctate, comparte y crece junto a nuestra comunidad de mujeres empoderadas</p>
+            </div>
+            
+            <div class="community-grid">
+                <!-- Main Content -->
+                <div class="community-content">
+                    <!-- Create Post -->
+                    <form id="post-form" class="create-post-card" data-aos="fade-up">
+                        <div class="post-input-container">
+                            <div class="user-avatar" id="current-user-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="post-input-wrapper">
+                                <textarea id="post-text" class="post-input" placeholder="¿Qué estás pensando hoy?"></textarea>
+                                <div class="media-preview" id="media-preview"></div>
+                                <div class="post-actions">
+                                    <div class="action-buttons">
+                                        <button type="button" class="action-btn" id="add-photo">
+                                            <i class="fas fa-image"></i> Foto
+                                            <input type="file" id="photo-upload" accept="image/*" style="display: none;">
+                                        </button>
+                                        <button type="button" class="action-btn" id="add-video">
+                                            <i class="fas fa-video"></i> Video
+                                            <input type="file" id="video-upload" accept="video/*" style="display: none;">
+                                        </button>
+                                        <button type="button" class="action-btn" id="add-sticker-btn">
+                                            <i class="fas fa-sticky-note"></i> Sticker
+                                        </button>
+                                        <button type="button" class="action-btn" id="create-sticker-btn">
+                                            <i class="fas fa-plus-circle"></i> Crear Sticker
+                                            <input type="file" id="sticker-upload" accept="image/*" style="display: none;">
+                                        </button>
+                                    </div>
+                                    <button type="button" class="btn-post" id="submit-post">Publicar</button>
+                                </div>
+                            <textarea class="post-input" placeholder="¿En qué estás pensando? Comparte tus logros, dudas o consejos con la comunidad..."></textarea>
+                        </div>
+                        
+                        <div class="post-actions">
+                            <div class="post-actions-left">
+                                <button type="button" class="action-btn" id="add-photo">
+                                    <i class="fas fa-image"></i> Foto
+                                    <input type="file" id="photo-upload" accept="image/*" class="sticker-upload-input">
+                                </button>
+                                <button type="button" class="action-btn" id="add-sticker">
+                                    <i class="fas fa-sticky-note"></i> Sticker
+                                </button>
+                            </div>
+                            <button type="button" class="btn-post" id="post-button">Publicar</button>
+                        </div>
+                        
+                        <div class="sticker-picker" id="sticker-picker">
+                            <div class="sticker-tabs">
+                                <div class="sticker-tab active" data-category="emojis">Emojis</div>
+                                <div class="sticker-tab" data-category="stickers">Stickers</div>
+                                <div class="sticker-tab" data-category="mis-stickers">Mis Stickers</div>
+                            </div>
+                            
+                            <div class="sticker-category active" id="emojis-category">
+                                <div class="sticker-grid">
+                                    <div class="sticker">😊</div>
+                                    <div class="sticker">❤️</div>
+                                    <div class="sticker">👍</div>
+                                    <div class="sticker">🎉</div>
+                                    <div class="sticker">💪</div>
+                                    <div class="sticker">✨</div>
+                                    <div class="sticker">🌸</div>
+                                    <div class="sticker">💖</div>
+                                </div>
+                            </div>
+                            
+                            <div class="sticker-category" id="stickers-category">
+                                <div class="sticker-grid">
+                                    <div class="sticker">🌟</div>
+                                    <div class="sticker">💕</div>
+                                    <div class="sticker">🔥</div>
+                                    <div class="sticker">💯</div>
+                                    <div class="sticker">🥰</div>
+                                    <div class="sticker">🙌</div>
+                                </div>
+                            </div>
+                            
+                            <div class="sticker-category" id="mis-stickers-category">
+                                <div class="sticker-upload-btn" id="upload-sticker-btn">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Agregar sticker</span>
+                                    <input type="file" id="sticker-upload" accept="image/*" class="sticker-upload-input">
+                                </div>
+                                <div class="sticker-grid" id="user-stickers">
+                                    <!-- Aquí se agregarán los stickers del usuario -->
+                                </div>
+                            </div>
+                            
+                            <div class="sticker-upload-container">
+                                <button type="button" id="upload-sticker-btn" class="btn-upload-sticker">
+                                    <i class="fas fa-plus"></i> Subir Sticker
+                                </button>
+                                <input type="file" id="sticker-file-input" accept="image/*" style="display: none;">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Community Feed -->
+                    <div class="community-feed">
+                        <!-- Post 1 -->
+                        <div class="post-card" data-aos="fade-up">
+                            <div class="post-header">
+                                <div class="post-user">
+                                    <div class="user-avatar">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="post-user-info">
+                                        <div class="post-username">Ana Martínez</div>
+                                        <div class="post-time">Hace 2 horas</div>
+                                    </div>
+                                </div>
+                                <div class="post-more">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="post-content">
+                                <p>¡Hola chicas! Hoy completé mi primera semana de entrenamiento 💪 Estoy muy feliz con mis avances. ¿Alguna tiene algún consejo para mantenerme motivada?</p>
+                                <div class="post-sticker">💖</div>
+                            </div>
+                            
+                            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Entrenamiento" class="post-image">
+                            
+                            <div class="post-actions">
+                                <div class="post-action like-btn">
+                                    <i class="far fa-heart"></i> <span>24 Me gusta</span>
+                                </div>
+                                <div class="post-action">
+                                    <i class="far fa-comment"></i> <span>8 Comentarios</span>
+                                </div>
+                                <div class="post-action">
+                                    <i class="far fa-share-square"></i> <span>Compartir</span>
+                                </div>
+                            </div>
+                            
+                            <div class="post-comments">
+                                <!-- Comment 1 -->
+                                <div class="comment">
+                                    <div class="comment-avatar">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="comment-content">
+                                        <div class="comment-user">Laura González</div>
+                                        <p class="comment-text">¡Felicidades Ana! Lo estás haciendo genial. A mí me ayuda mucho llevar un registro de mis progresos en una libreta, ver lo que he logrado me motiva a seguir adelante. ¡Tú puedes! 💪</p>
+                                        <div class="comment-actions">
+                                            <span class="comment-action">Me gusta</span>
+                                            <span class="comment-action">Responder</span>
+                                            <span class="comment-time">Hace 1 hora</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Comment 2 -->
+                                <div class="comment">
+                                    <div class="comment-avatar">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="comment-content">
+                                        <div class="comment-user">Carla Ruiz</div>
+                                        <p class="comment-text">¡Increíble Ana! Yo empecé hace un mes y lo que más me ha ayudado es encontrar una rutina que disfruto. Si te aburres, cambia de ejercicio, hay muchas opciones divertidas 💃</p>
+                                        <div class="comment-actions">
+                                            <span class="comment-action">Me gusta</span>
+                                            <span class="comment-action">Responder</span>
+                                            <span class="comment-time">Hace 45 min</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Add Comment -->
+                                <div class="add-comment">
+                                    <input type="text" class="comment-input" placeholder="Escribe un comentario...">
+                                    <button class="btn-comment">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Post 2 -->
+                        <div class="post-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="post-header">
+                                <div class="post-user">
+                                    <div class="user-avatar">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="post-user-info">
+                                        <div class="post-username">Sofía López</div>
+                                        <div class="post-time">Ayer a las 15:30</div>
+                                    </div>
+                                </div>
+                                <div class="post-more">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="post-content">
+                                <p>¡Hola comunidad! Les comparto mi receta saludable favorita para después del entrenamiento. Es un bowl de açaí con frutas y granola casera. ¡Super fácil de hacer y delicioso! ¿Cuál es su snack saludable favorito?</p>
+                            </div>
+                            
+                            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Bowl de açaí" class="post-image">
+                            
+                            <div class="post-actions">
+                                <div class="post-action like-btn">
+                                    <i class="far fa-heart"></i> <span>42 Me gusta</span>
+                                </div>
+                                <div class="post-action">
+                                    <i class="far fa-comment"></i> <span>15 Comentarios</span>
+                                </div>
+                                <div class="post-action">
+                                    <i class="far fa-share-square"></i> <span>Compartir</span>
+                                </div>
+                            </div>
+                            
+                            <div class="post-comments">
+                                <!-- Add Comment -->
+                                <div class="add-comment">
+                                    <input type="text" class="comment-input" placeholder="Escribe un comentario...">
+                                    <button class="btn-comment">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Post 3 - Video -->
+                        <div class="post-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="post-header">
+                                <div class="post-user">
+                                    <div class="user-avatar">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="post-user-info">
+                                        <div class="post-username">P-Harmonía</div>
+                                        <div class="post-time">Ayer a las 10:15</div>
+                                    </div>
+                                </div>
+                                <div class="post-more">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="post-content">
+                                <p>¡Buenos días comunidad! 🌞 Aquí les dejamos una rutina rápida de 10 minutos para activar el cuerpo por la mañana. ¡Perfecta para empezar el día con energía! 💪 #RutinaMañanera #PonteEnForma</p>
+                            </div>
+                            
+                            <div class="post-video">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            
+                            <div class="post-actions">
+                                <div class="post-action like-btn">
+                                    <i class="far fa-heart"></i> <span>89 Me gusta</span>
+                                </div>
+                                <div class="post-action">
+                                    <i class="far fa-comment"></i> <span>23 Comentarios</span>
+                                </div>
+                                <div class="post-action">
+                                    <i class="far fa-share-square"></i> <span>Compartir</span>
+                                </div>
+                            </div>
+                            
+                            <div class="post-comments">
+                                <!-- Add Comment -->
+                                <div class="add-comment">
+                                    <input type="text" class="comment-input" placeholder="Escribe un comentario...">
+                                    <button class="btn-comment">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="community-sidebar">
+                    <!-- Trending Tags -->
+                    <div class="sidebar-card" data-aos="fade-left">
+                        <h3 class="sidebar-title">
+                            <i class="fas fa-hashtag"></i> Tendencias
+                        </h3>
+                        <div class="trending-tags">
+                            <span class="tag">#Fitness</span>
+                            <span class="tag">#Salud</span>
+                            <span class="tag">#EjercicioEnCasa</span>
+                            <span class="tag">#VidaSaludable</span>
+                            <span class="tag">#Bienestar</span>
+                            <span class="tag">#Nutrición</span>
+                            <span class="tag">#Ejercicio</span>
+                            <span class="tag">#Motivación</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Online Users -->
+                    <div class="sidebar-card" data-aos="fade-left" data-aos-delay="100">
+                        <h3 class="sidebar-title">
+                            <i class="fas fa-users"></i> En línea ahora
+                        </h3>
+                        <div class="online-users">
+                            <div class="user-item">
+                                <div class="user-avatar-sm online">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span class="user-name">María G.</span>
+                            </div>
+                            <div class="user-item">
+                                <div class="user-avatar-sm online">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span class="user-name">Laura T.</span>
+                            </div>
+                            <div class="user-item">
+                                <div class="user-avatar-sm online">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span class="user-name">Ana P.</span>
+                            </div>
+                            <div class="user-item">
+                                <div class="user-avatar-sm">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span class="user-name">Carla M.</span>
+                            </div>
+                            <div class="user-item">
+                                <div class="user-avatar-sm online">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span class="user-name">Sofía R.</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Upcoming Events -->
+                    <div class="sidebar-card" data-aos="fade-left" data-aos-delay="200">
+                        <h3 class="sidebar-title">
+                            <i class="far fa-calendar-alt"></i> Próximos eventos
+                        </h3>
+                        <div class="upcoming-events">
+                            <div class="event-item">
+                                <div class="event-date">
+                                    <div class="event-day">15</div>
+                                    <div class="event-month">NOV</div>
+                                </div>
+                                <div class="event-details">
+                                    <h4>Clase de Yoga al amanecer</h4>
+                                    <div class="event-time">
+                                        <i class="far fa-clock"></i> 6:00 AM - 7:00 AM
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-date">
+                                    <div class="event-day">18</div>
+                                    <div class="event-month">NOV</div>
+                                </div>
+                                <div class="event-details">
+                                    <h4>Taller de nutrición saludable</h4>
+                                    <div class="event-time">
+                                        <i class="far fa-clock"></i> 5:00 PM - 6:30 PM
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-date">
+                                    <div class="event-day">22</div>
+                                    <div class="event-month">NOV</div>
+                                </div>
+                                <div class="event-details">
+                                    <h4>Reto de 30 días</h4>
+                                    <div class="event-time">
+                                        <i class="far fa-clock"></i> Todo el día
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Daily Tip -->
+                    <div class="sidebar-card" data-aos="fade-left" data-aos-delay="300">
+                        <h3 class="sidebar-title">
+                            <i class="fas fa-lightbulb"></i> Consejo del día
+                        </h3>
+                        <div class="daily-tip">
+                            <p id="daily-tip-text">
+                                Beber un vaso de agua tibia con limón en ayunas ayuda a mejorar la digestión y a desintoxicar el organismo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+    <script>
+        // Load footer
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+    </script>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+</body>
+</html>

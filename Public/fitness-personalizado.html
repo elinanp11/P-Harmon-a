@@ -1,0 +1,2011 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P-Harmonia - Fitness Personalizado</title>
+    <meta name="description" content="Planes de ejercicio personalizados, rutinas de entrenamiento y consejos para alcanzar tus metas de fitness.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/header.css">
+    
+    <style>
+        :root {
+            /* Main Colors */
+            --tickle-me-pink: #F283AF;
+            --mint-green: #A8E6CF;
+            --light-pink: #FFD3B6;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --text-dark: #333333;
+            --text-light: #666666;
+            
+            /* Additional Colors */
+            --champagne: #FBF4EB;
+            --blush: #FBD9E5;
+            --cherry-blossom: #FBD9E5;
+            --raspberry-rose: #C43670;
+            --sunset: #F3CC97;
+            
+            /* UI Elements */
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --border-radius: 12px;
+            --gradient: linear-gradient(135deg, var(--tickle-me-pink) 0%, var(--raspberry-rose) 100%);
+            --gradient-mint: linear-gradient(135deg, #A8E6CF 0%, #DCEDC1 100%);
+            
+            /* Legacy variables for compatibility */
+            --primary-color: var(--tickle-me-pink);
+            --secondary-color: var(--mint-green);
+            --accent-color: var(--light-pink);
+            --light-color: var(--light-gray);
+            --dark-color: var(--text-dark);
+        }
+        
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+            margin: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 9rem 0 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1538805060514-97d9cc17730c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+            animation: gradientBG 15s ease infinite;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.2s;
+            animation-fill-mode: both;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1538805060514-97d9cc17730c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s;
+            animation-fill-mode: both;
+        }
+        
+        /* Body Type Section */
+        .body-type-section {
+            padding: 5rem 0;
+            background-color: var(--white);
+        }
+        
+        .body-type-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .body-type-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 2px solid transparent;
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .body-type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-color: var(--tickle-me-pink);
+        }
+        
+        .body-type-card .card-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--tickle-me-pink), var(--raspberry-rose));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 1.8rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .body-type-card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .body-type-card h4 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .body-type-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .card-hover {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--tickle-me-pink);
+            color: white;
+            padding: 0.8rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .body-type-card:hover .card-hover {
+            transform: translateY(0);
+        }
+        
+        .body-type-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .body-type-details {
+            margin-top: 2.5rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--tickle-me-pink);
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .section-description {
+            color: var(--text-light);
+            text-align: center;
+            max-width: 700px;
+            margin: 0.5rem auto 0;
+            line-height: 1.6;
+        }
+        
+        /* Goals Section */
+        .goals {
+            padding: 5rem 0;
+            background-color: var(--light-gray);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--raspberry-rose);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--tickle-me-pink);
+            border-radius: 3px;
+        }
+        
+        .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .goal-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .goal-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .goal-card:hover .goal-icon {
+            transform: scale(1.1);
+            color: var(--raspberry-rose);
+        }
+        
+        .goal-card .card-image {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .goal-card .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .goal-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+        
+        .goal-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255,255,255,0.9);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--tickle-me-pink);
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-content h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--raspberry-rose);
+            margin-bottom: 0.75rem;
+            font-size: 1.4rem;
+        }
+        
+        .card-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--tickle-me-pink);
+            color: var(--tickle-me-pink);
+        }
+        
+        .btn-outline:hover {
+            background: var(--tickle-me-pink);
+            color: white;
+        }
+        
+        .goal-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .goal-content {
+            padding: 1.5rem;
+        }
+        
+        .goal-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+        
+        .goal-card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        /* Plan Details Section */
+        .plan-details {
+            display: none;
+            padding: 4rem 0;
+            background-color: #f9f9f9;
+        }
+        
+        .plan-content {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .back-button i {
+            margin-right: 0.5rem;
+        }
+        
+        .plan-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .plan-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .motivational-quote {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        .plan-section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-subtitle i {
+            margin-right: 0.75rem;
+            color: var(--primary-color);
+        }
+        
+        .diet-plan, .exercise-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .meal-card, .exercise-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .meal-card:hover, .exercise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .meal-card h4, .exercise-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+        
+        .meal-card p, .exercise-card p {
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Meal Plan Styles */
+        .meal-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .meal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--tickle-me-pink), var(--raspberry-rose));
+        }
+        
+        .meal-card .meal-header {
+            background: linear-gradient(135deg, #fff9fb, #fff);
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .meal-card .meal-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--tickle-me-pink), var(--raspberry-rose));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(242, 131, 175, 0.3);
+        }
+        
+        .meal-card .meal-title {
+            margin: 0;
+            color: var(--dark-color);
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .meal-card .meal-content {
+            padding: 1.5rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+        
+        .meal-card .meal-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--tickle-me-pink);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px dashed #eee;
+        }
+        
+        .meal-card .meal-meta i {
+            font-size: 1rem;
+        }
+        
+        .diet-plan {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .section-title-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--tickle-me-pink), var(--raspberry-rose));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        /* Calculator Section */
+        .calculator {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .results {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            display: none;
+        }
+        
+        .results h4 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* Body Type Section */
+        .body-type {
+            margin-top: 2rem;
+        }
+        
+        .body-type-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .body-type-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .body-type-card:hover, .body-type-card.active {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        .body-type-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .body-type-card h4 {
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+        
+        .body-type-details {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        /* Videos Section */
+        .videos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .video-card {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-card iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            margin: 3rem 0;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: #eee;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: var(--gradient);
+            width: 0;
+            transition: width 1s ease-in-out;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .plan-header h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content" data-aos="fade-up">
+            <h1>Tu plan fitness personalizado</h1>
+            <p class="lead">Crea hábitos, alcanza tu mejor versión</p>
+            <a href="#body-type" class="btn">Comenzar ahora</a>
+        </div>
+    </section>
+    
+    <!-- Body Type Section -->
+    <section class="body-type-section" id="body-type">
+        <div class="container">
+            <h2 class="section-title">Selecciona tu tipo de cuerpo</h2>
+            <p class="section-subtitle text-center mb-5">Descubre el plan perfecto para tu tipo de cuerpo</p>
+            
+            <div class="body-type-grid">
+                <div class="body-type-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-triangle"></i>
+                    <h3>Triángulo Invertido</h3>
+                    <p>Hombros más anchos que las caderas, con una cintura definida.</p>
+                </div>
+                
+                <div class="body-type-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-pear"></i>
+                    <h3>Triangular/Pera</h3>
+                    <p>Caderas más anchas que los hombros, con cintura definida.</p>
+                </div>
+                
+                <div class="body-type-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-apple-alt"></i>
+                    <h3>Manzana</h3>
+                    <p>Hombros y caderas equilibradas, con más peso en el área del estómago.</p>
+                </div>
+                
+                <div class="body-type-card" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-hourglass"></i>
+                    <h3>Reloj de Arena</h3>
+                    <p>Hombros y caderas equilibradas, con cintura bien definida.</p>
+                </div>
+                
+                <div class="body-type-card" data-aos="fade-up" data-aos-delay="500">
+                    <i class="fas fa-vector-square"></i>
+                    <h3>Rectangular</h3>
+                    <p>Hombros, cintura y caderas con medidas similares.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Goals Section -->
+    <section class="goals" id="goals">
+        <div class="container">
+            <h2 class="section-title">Elige tu objetivo fitness</h2>
+            <p class="section-subtitle text-center mb-5">Selecciona tu meta principal para obtener un plan personalizado</p>
+            
+            <div class="goals-grid">
+                <div class="goal-card" data-aos="fade-up" data-aos-delay="100" onclick="showPlan('tonificar')">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1535914254981-b5012eebbd15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Tonificar cuerpo">
+                        <div class="goal-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Tonificar cuerpo</h3>
+                        <p>Desarrolla músculo definido y mejora tu tono muscular con ejercicios específicos.</p>
+                        <a href="#" class="btn btn-outline">Ver plan</a>
+                    </div>
+                </div>
+                
+                <div class="goal-card" data-aos="fade-up" data-aos-delay="200" onclick="showPlan('bajar-peso')">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Bajar de peso">
+                        <div class="goal-icon">
+                            <i class="fas fa-weight"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Bajar de peso</h3>
+                        <p>Pierde grasa corporal de manera saludable con ejercicios cardiovasculares y de fuerza.</p>
+                        <a href="#" class="btn btn-outline">Ver plan</a>
+                    </div>
+                </div>
+                
+                <div class="goal-card" data-aos="fade-up" data-aos-delay="300" onclick="showPlan('subir-peso')">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f725?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Subir de peso">
+                        <div class="goal-icon">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Subir de peso</h3>
+                        <p>Gana masa muscular de manera saludable con ejercicios y alimentación adecuada.</p>
+                        <a href="#" class="btn btn-outline">Ver plan</a>
+                    </div>
+                </div>
+                
+                <div class="goal-card" data-aos="fade-up" data-aos-delay="400" onclick="showPlan('masa-muscular')">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Aumentar masa muscular">
+                        <div class="goal-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Aumentar masa muscular</h3>
+                        <p>Desarrolla músculo de manera efectiva con entrenamiento de fuerza progresivo.</p>
+                        <a href="#" class="btn btn-outline">Ver plan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Plan Details Section (Initially Hidden) -->
+    <section class="plan-details" id="plan-details">
+        <div class="container">
+            <div class="plan-content">
+                <div class="back-button" id="back-to-goals">
+                    <i class="fas fa-arrow-left"></i> Volver a objetivos
+                </div>
+                
+                <div class="plan-header">
+                    <h2 id="plan-title">Plan de Entrenamiento</h2>
+                    <p class="motivational-quote" id="motivational-quote">Cada pequeño paso te acerca más a tu meta</p>
+                </div>
+                
+                <!-- Diet Plan -->
+                <div class="plan-section">
+                    <div class="section-header">
+                        <div class="section-title-wrapper">
+                            <div class="section-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h3 class="section-subtitle">Plan de Alimentación</h3>
+                        </div>
+                        <button id="new-meal-plan" class="btn btn-outline">
+                            <i class="fas fa-sync-alt"></i> Generar nuevo menú
+                        </button>
+                    </div>
+                    <p class="section-description">Tu plan de alimentación personalizado para alcanzar tus metas de manera saludable.</p>
+                    
+                    <div class="diet-plan" id="diet-plan">
+                        <!-- Filled by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Exercises -->
+                <div class="plan-section">
+                    <h3 class="section-subtitle"><i class="fas fa-dumbbell"></i> Ejercicios Recomendados</h3>
+                    <div class="exercise-list" id="exercise-list">
+                        <!-- Filled by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Health Calculator -->
+                <div class="plan-section">
+                    <h3 class="section-subtitle"><i class="fas fa-calculator"></i> Calculadora de Salud</h3>
+                    <div class="calculator">
+                        <form id="health-calculator">
+                            <div class="form-group">
+                                <label for="age">Edad</label>
+                                <input type="number" id="age" class="form-control" min="15" max="100" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="current-weight">Peso Actual (kg)</label>
+                                <input type="number" id="current-weight" class="form-control" min="30" max="200" step="0.1" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="target-weight">Peso Objetivo (kg)</label>
+                                <input type="number" id="target-weight" class="form-control" min="30" max="200" step="0.1" required>
+                            </div>
+                            
+                            <button type="submit" class="btn">Calcular</button>
+                        </form>
+                        
+                        <div class="results" id="results">
+                            <h4>Tu Plan Personalizado</h4>
+                            <p><strong>Agua recomendada:</strong> <span id="water-intake">8-10 vasos</span> al día</p>
+                            <p><strong>Tiempo estimado:</strong> <span id="time-estimate">3-4 meses</span> para alcanzar tu objetivo</p>
+                            <p><strong>Consejo del día:</strong> <span id="daily-tip">Bebe un vaso de agua al despertar para activar tu metabolismo</span></p>
+                            
+                            <div class="progress-container">
+                                <div class="progress-header">
+                                    <span>Tu progreso</span>
+                                    <span id="progress-percentage">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" id="progress-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Body Type -->
+                <div class="plan-section body-type">
+                    <h3 class="section-subtitle"><i class="fas fa-user"></i> Tipo de Cuerpo</h3>
+                    <p>Selecciona tu tipo de cuerpo para ver recomendaciones específicas:</p>
+                    
+                    <div class="body-type-options">
+                        <div class="body-type-card" data-type="ectomorfo">
+                            <i class="fas fa-user"></i>
+                            <h4>Ectomorfo</h4>
+                            <p>Delgado, metabolismo rápido</p>
+                        </div>
+                        
+                        <div class="body-type-card" data-type="mesomorfo">
+                            <i class="fas fa-user"></i>
+                            <h4>Mesomorfo</h4>
+                            <p>Atlético, construye músculo fácilmente</p>
+                        </div>
+                        
+                        <div class="body-type-card" data-type="endomorfo">
+                            <i class="fas fa-user"></i>
+                            <h4>Endomorfo</h4>
+                            <p>Constitución más pesada, tiende a ganar grasa</p>
+                        </div>
+                    </div>
+                    
+                    <div class="body-type-details" id="body-type-details">
+                        <!-- Filled by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Videos -->
+                <div class="plan-section">
+                    <h3 class="section-subtitle"><i class="fas fa-video"></i> Videos Recomendados</h3>
+                    <div class="videos" id="recommended-videos">
+                        <!-- Filled by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer id="footer-container"></footer>
+    
+    <style>
+        /* Community Section */
+        .community-section {
+            padding: 5rem 0;
+            background-color: var(--champagne);
+        }
+        
+        .community-grid {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .create-post-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .user-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--blush);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--raspberry-rose);
+            flex-shrink: 0;
+        }
+        
+        .user-avatar.online::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: #4CAF50;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            border: 2px solid white;
+        }
+        
+        .post-input {
+            flex: 1;
+        }
+        
+        .post-input input[type="text"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 24px;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .post-input input[type="text"]:focus {
+            outline: none;
+            border-color: var(--tickle-me-pink);
+            box-shadow: 0 0 0 3px rgba(242, 131, 175, 0.2);
+        }
+        
+        .post-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .action-btn {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+        }
+        
+        .action-btn:hover {
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--raspberry-rose);
+        }
+        
+        .sticker-picker {
+            display: none;
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .sticker-picker.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .sticker-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .sticker-header h4 {
+            margin: 0;
+            color: var(--dark-color);
+        }
+        
+        .close-picker {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 0 0.5rem;
+        }
+        
+        .sticker-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        
+        .sticker {
+            font-size: 2rem;
+            text-align: center;
+            padding: 0.5rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+        
+        .sticker:hover {
+            background: var(--blush);
+            transform: scale(1.2);
+        }
+        
+        .community-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .post-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .post-user {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .user-info h4 {
+            margin: 0;
+            font-size: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .post-time {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+        
+        .post-options {
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+        
+        .post-options:hover {
+            background: #f5f5f5;
+            color: var(--raspberry-rose);
+        }
+        
+        .post-content {
+            padding: 1.5rem;
+        }
+        
+        .post-content p {
+            margin: 0 0 1rem 0;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .post-media {
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+        
+        .post-media img, .post-media video {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+        }
+        
+        .post-stats {
+            display: flex;
+            gap: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .stat i {
+            color: var(--raspberry-rose);
+        }
+        
+        .post-actions {
+            display: flex;
+            justify-content: space-around;
+            padding: 0.5rem 1.5rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .post-comments {
+            padding: 1rem 1.5rem;
+            background: #fafafa;
+        }
+        
+        .comment {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .comment-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--blush);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--raspberry-rose);
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+        
+        .comment-content {
+            background: white;
+            padding: 0.75rem 1rem;
+            border-radius: 18px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            flex: 1;
+        }
+        
+        .comment-content strong {
+            color: var(--dark-color);
+            margin-right: 0.5rem;
+        }
+        
+        .comment-actions {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+        
+        .comment-actions span {
+            margin-right: 0.75rem;
+            cursor: pointer;
+        }
+        
+        .comment-actions span:hover {
+            text-decoration: underline;
+            color: var(--raspberry-rose);
+        }
+        
+        .add-comment {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .add-comment input[type="text"] {
+            flex: 1;
+            padding: 0.5rem 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .add-comment input[type="text"]:focus {
+            border-color: var(--tickle-me-pink);
+            box-shadow: 0 0 0 2px rgba(242, 131, 175, 0.2);
+        }
+        
+        .btn-text {
+            background: none;
+            border: none;
+            color: var(--raspberry-rose);
+            font-weight: 500;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-text:hover {
+            background: rgba(242, 131, 175, 0.1);
+        }
+        
+        /* Sidebar */
+        .community-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            position: sticky;
+            top: 6rem;
+            align-self: flex-start;
+        }
+        
+        .sidebar-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .sidebar-card h3 {
+            margin: 0 0 1rem 0;
+            color: var(--dark-color);
+            font-size: 1.1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .trending-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tag {
+            background: var(--blush);
+            color: var(--raspberry-rose);
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        
+        .tag:hover {
+            background: var(--tickle-me-pink);
+            color: white;
+        }
+        
+        .online-users {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .user {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .user-avatar {
+            position: relative;
+        }
+        
+        .user span {
+            font-size: 0.9rem;
+            color: var(--dark-color);
+        }
+        
+        .event {
+            display: flex;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .event:last-child {
+            border-bottom: none;
+        }
+        
+        .event-date {
+            background: var(--blush);
+            color: var(--raspberry-rose);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+        
+        .event-details h4 {
+            margin: 0 0 0.25rem 0;
+            font-size: 0.95rem;
+            color: var(--dark-color);
+        }
+        
+        .event-details p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        
+        @media (max-width: 992px) {
+            .community-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .community-sidebar {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+                position: static;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .create-post-card {
+                flex-direction: column;
+            }
+            
+            .post-actions {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+            
+            .action-buttons {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .community-sidebar {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    
+    <script>
+        // Sticker Picker Toggle
+        const addStickerBtn = document.getElementById('add-sticker');
+        const stickerPicker = document.getElementById('sticker-picker');
+        const closeStickerBtn = document.getElementById('close-sticker');
+        const postText = document.getElementById('post-text');
+        const stickers = document.querySelectorAll('.sticker');
+        
+        if (addStickerBtn) {
+            addStickerBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                stickerPicker.classList.toggle('show');
+            });
+        }
+        
+        if (closeStickerBtn) {
+            closeStickerBtn.addEventListener('click', () => {
+                stickerPicker.classList.remove('show');
+            });
+        }
+        
+        stickers.forEach(sticker => {
+            sticker.addEventListener('click', () => {
+                if (postText) {
+                    postText.value += sticker.dataset.sticker;
+                    postText.focus();
+                    stickerPicker.classList.remove('show');
+                }
+            });
+        });
+        
+        // Like button toggle
+        document.querySelectorAll('.action-btn').forEach(btn => {
+            const icon = btn.querySelector('i');
+            if (icon && icon.classList.contains('fa-heart')) {
+                btn.addEventListener('click', () => {
+                    icon.classList.toggle('far');
+                    icon.classList.toggle('fas');
+                    
+                    if (icon.classList.contains('fas')) {
+                        btn.style.color = '#e91e63';
+                    } else {
+                        btn.style.color = '';
+                    }
+                });
+            }
+        });
+    </script>
+    
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Make showPlan function globally available
+        window.showPlan = function(goal) {
+            const goalsSection = document.getElementById('goals');
+            const planDetailsSection = document.getElementById('plan-details');
+            const planTitle = document.getElementById('plan-title');
+            
+            if (goalsSection && planDetailsSection) {
+                goalsSection.style.display = 'none';
+                planDetailsSection.style.display = 'block';
+                
+                // Scroll to plan details
+                planDetailsSection.scrollIntoView({ behavior: 'smooth' });
+                
+                // Update plan title
+                const goalNames = {
+                    'tonificar': 'Tonificar Cuerpo',
+                    'bajar-peso': 'Bajar de Peso',
+                    'subir-peso': 'Subir de Peso',
+                    'masa-muscular': 'Aumentar Masa Muscular'
+                };
+                
+                if (planTitle) {
+                    planTitle.textContent = `Plan para ${goalNames[goal] || 'Fitness'}`;
+                }
+                
+                // Here you would load the specific plan content based on the goal
+                // For now, we'll just show a success message
+                console.log(`Loading plan for: ${goal}`);
+            }
+        };
+        
+        // Load header and footer
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+            });
+            
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('footer-container').innerHTML = html;
+            });
+        
+        // Initialize AOS (Animate On Scroll)
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+            
+            // Set up back button
+            const backButton = document.getElementById('back-to-goals');
+            if (backButton) {
+                backButton.addEventListener('click', function() {
+                    const goalsSection = document.getElementById('goals');
+                    const planDetailsSection = document.getElementById('plan-details');
+                    
+                    if (goalsSection && planDetailsSection) {
+                        goalsSection.style.display = 'block';
+                        planDetailsSection.style.display = 'none';
+                        goalsSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            }
+        });
+        
+        // Sample data for plans
+        const plansData = {
+                'tonificar': {
+                    title: 'Plan para Tonificar',
+                    diet: [
+                        { 
+                            meal: 'Desayuno', 
+                            description: 'Avena con frutas y nueces, huevos revueltos con espinacas' 
+                        },
+                        { 
+                            meal: 'Almuerzo', 
+                            description: 'Pechuga de pollo a la plancha con quinoa y ensalada de vegetales' 
+                        },
+                        { 
+                            meal: 'Cena', 
+                            description: 'Salmón al horno con espárragos y boniato asado' 
+                        },
+                        { 
+                            meal: 'Snacks', 
+                            description: 'Yogur griego con frutos rojos, puñado de almendras' 
+                        }
+                    ],
+                    exercises: [
+                        { 
+                            name: 'Sentadillas', 
+                            description: '3 series de 12-15 repeticiones' 
+                        },
+                        { 
+                            name: 'Plancha', 
+                            description: '3 series de 30-60 segundos' 
+                        },
+                        { 
+                            name: 'Peso muerto', 
+                            description: '3 series de 10-12 repeticiones' 
+                        }
+                    ],
+                    videos: [
+                        'https://www.youtube.com/embed/example1',
+                        'https://www.youtube.com/embed/example2',
+                        'https://www.youtube.com/embed/example3'
+                    ],
+                    tips: [
+                        'Mantén una buena postura durante los ejercicios',
+                        'Bebe suficiente agua durante el día',
+                        'Descansa lo suficiente entre series',
+                        'Varía tu rutina regularmente',
+                        'Escucha a tu cuerpo y no te excedas'
+                    ]
+                },
+                // Similar data for other goals...
+            };
+            
+            // Motivational quotes
+            const motivationalQuotes = [
+                "El éxito es la suma de pequeños esfuerzos repetidos día tras día.",
+                "No te rindas, el principio es siempre lo más duro.",
+                "El único mal entrenamiento es el que no se hace.",
+                "La disciplina es el puente entre las metas y los logros.",
+                "No importa lo lento que vayas, siempre y cuando no te detengas.",
+                "Tu cuerpo logra lo que tu mente cree.",
+                "El dolor que sientes hoy será la fuerza que sientas mañana.",
+                "No esperes a que llegue el momento perfecto, empieza ahora."
+            ];
+            
+            // Show plan details when a goal card is clicked
+            goalCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const goal = this.getAttribute('data-goal');
+                    showPlan(goal);
+                });
+            });
+            
+            // Back to goals button
+            backButton.addEventListener('click', function() {
+                goalsSection.style.display = 'block';
+                planDetailsSection.style.display = 'none';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // Show plan function
+            function showPlan(goal) {
+                const plan = plansData[goal] || plansData['tonificar']; // Default to 'tonificar' if goal not found
+                
+                // Update plan title
+                planTitle.textContent = plan.title;
+                
+                // Show random motivational quote
+                const randomQuote = motivationalQuotes[Math.floor(Math.random() * motivationalQuotes.length)];
+                document.getElementById('motivational-quote').textContent = randomQuote;
+                
+                // Update diet plan
+                const dietPlanContainer = document.getElementById('diet-plan');
+                dietPlanContainer.innerHTML = '';
+                
+                const mealOptions = {
+                    'Desayuno': [
+                        'Avena con frutas y nueces, huevos revueltos con espinacas',
+                        'Tostadas integrales con aguacate y huevo pochado',
+                        'Batido de proteína con plátano y mantequilla de maní',
+                        'Yogur griego con granola y frutos rojos',
+                        'Tortilla de claras con vegetales y pan integral'
+                    ],
+                    'Almuerzo': [
+                        'Pechuga de pollo a la plancha con quinoa y ensalada de vegetales',
+                        'Salmón con arroz integral y brócoli al vapor',
+                        'Ensalada César con pollo a la parrilla y aderezo ligero',
+                        'Wrap integral con pavo, aguacate y vegetales',
+                        'Bowl de arroz con vegetales salteados y tofu'
+                    ],
+                    'Cena': [
+                        'Salmón al horno con espárragos y boniato asado',
+                        'Pechuga de pavo con puré de coliflor y espinacas',
+                        'Ensalada de atún con garbanzos y vegetales mixtos',
+                        'Tortilla de claras con champiñones y espinacas',
+                        'Sopa de lentejas con vegetales'
+                    ],
+                    'Snacks': [
+                        'Yogur griego con frutos rojos, puñado de almendras',
+                        'Huevo duro con bastones de apio',
+                        'Batido de proteína con leche de almendras',
+                        'Rodajas de manzana con mantequilla de almendras',
+                        'Palitos de zanahoria y pepino con hummus'
+                    ]
+                };
+
+                // Function to generate a random meal plan
+                function generateMealPlan() {
+                    const mealPlan = [];
+                    for (const [mealType, options] of Object.entries(mealOptions)) {
+                        const randomIndex = Math.floor(Math.random() * options.length);
+                        mealPlan.push({
+                            meal: mealType,
+                            description: options[randomIndex]
+                        });
+                    }
+                    return mealPlan;
+                }
+
+                const currentPlan = generateMealPlan();
+                
+                function renderMealPlan(meals) {
+                    dietPlanContainer.innerHTML = meals.map(food => `
+                        <div class="meal-card" data-aos="fade-up">
+                            <div class="meal-header">
+                                <div class="meal-icon">
+                                    <i class="fas fa-${food.icon}"></i>
+                                </div>
+                                <h3 class="meal-title">${food.meal}</h3>
+                            </div>
+                            <div class="meal-content">
+                                <p>${food.description}</p>
+                                <div class="meal-meta">
+                                    <span><i class="fas fa-fire"></i> ${food.calories} kcal</span>
+                                    <span><i class="fas fa-dumbbell"></i> ${food.protein}g proteína</span>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+                
+                renderMealPlan(plan.diet || currentPlan);
+                
+                // Add event listener for new meal plan button
+                document.getElementById('new-meal-plan')?.addEventListener('click', function() {
+                    const newMealPlan = generateMealPlan();
+                    renderMealPlan(newMealPlan);
+                    
+                    // Add animation for visual feedback
+                    dietPlanContainer.style.animation = 'fadeIn 0.5s';
+                    setTimeout(() => {
+                        dietPlanContainer.style.animation = '';
+                    }, 500);
+                });
+                
+                // Update exercises
+                const exerciseList = document.getElementById('exercise-list');
+                exerciseList.innerHTML = '';
+                
+                plan.exercises.forEach(exercise => {
+                    const exerciseCard = document.createElement('div');
+                    exerciseCard.className = 'exercise-card';
+                    exerciseCard.innerHTML = `
+                        <h4>${exercise.name}</h4>
+                        <p>${exercise.description}</p>
+                    `;
+                    exerciseList.appendChild(exerciseCard);
+                });
+                
+                // Update videos
+                const videosContainer = document.getElementById('recommended-videos');
+                videosContainer.innerHTML = '';
+                
+                plan.videos.forEach(videoUrl => {
+                    const videoCard = document.createElement('div');
+                    videoCard.className = 'video-card';
+                    videoCard.innerHTML = `
+                        <iframe src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
+                    `;
+                    videosContainer.appendChild(videoCard);
+                });
+                
+                // Show the plan section
+                goalsSection.style.display = 'none';
+                planDetailsSection.style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Reset form
+                document.getElementById('health-calculator').reset();
+                document.getElementById('results').style.display = 'none';
+                
+                // Reset body type selection
+                document.querySelectorAll('.body-type-card').forEach(card => {
+                    card.classList.remove('active');
+                });
+                document.getElementById('body-type-details').style.display = 'none';
+            }
+            
+            // Health calculator form submission
+            document.getElementById('health-calculator').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const age = parseInt(document.getElementById('age').value);
+                const currentWeight = parseFloat(document.getElementById('current-weight').value);
+                const targetWeight = parseFloat(document.getElementById('target-weight').value);
+                
+                // Simple calculation for demonstration
+                const weightDifference = Math.abs(targetWeight - currentWeight);
+                const weeksToGoal = Math.max(4, Math.ceil(weightDifference * 1.5));
+                
+                // Calculate water intake (simplified)
+                const waterIntake = Math.round((currentWeight * 0.033) * 10) / 10; // ~33ml per kg
+                
+                // Update results
+                document.getElementById('water-intake').textContent = `${waterIntake}L (${Math.round(waterIntake * 4.2)} vasos) al día`;
+                document.getElementById('time-estimate').textContent = `${weeksToGoal} semanas`;
+                
+                // Show random tip
+                const tips = [
+                    'Bebe un vaso de agua al despertar para activar tu metabolismo',
+                    'Incluye proteína en cada comida para mantener la masa muscular',
+                    'Duerme al menos 7-8 horas para una óptima recuperación',
+                    'Camina al menos 10,000 pasos al día',
+                    'Evita las bebidas azucaradas'
+                ];
+                const randomTip = tips[Math.floor(Math.random() * tips.length)];
+                document.getElementById('daily-tip').textContent = randomTip;
+                
+                // Update progress bar
+                const progress = Math.min(100, Math.round((currentWeight / targetWeight) * 100));
+                document.getElementById('progress-bar').style.width = `${progress}%`;
+                document.getElementById('progress-percentage').textContent = `${progress}%`;
+                
+                // Show results
+                document.getElementById('results').style.display = 'block';
+            });
+            
+            // Body type selection
+            document.querySelectorAll('.body-type-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    // Remove active class from all cards
+                    document.querySelectorAll('.body-type-card').forEach(c => {
+                        c.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked card
+                    this.classList.add('active');
+                    
+                    // Show body type details
+                    const bodyType = this.getAttribute('data-type');
+                    const details = bodyTypeData[bodyType];
+                    const detailsContainer = document.getElementById('body-type-details');
+                    
+                    detailsContainer.innerHTML = `
+                        <h4>${details.title}</h4>
+                        <p>${details.description}</p>
+                        <h5>Consejos:</h5>
+                        <ul>
+                            ${details.tips.map(tip => `<li>${tip}</li>`).join('')}
+                        </ul>
+                    `;
+                    
+                    detailsContainer.style.display = 'block';
+                });
+            });
+        ;
+    </script>
+</body>
+</html>

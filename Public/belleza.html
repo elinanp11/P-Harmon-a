@@ -3,226 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P-Harmonia - Belleza y Autocuidado</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+    <title>Belleza Personalizada | P-Harmonía</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <style>
-        /* Header Styles */
-        .site-header {
-            background-color: var(--white);
-            box-shadow: var(--shadow);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 0.8rem 0;
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--raspberry-rose);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo img {
-            height: 40px;
-            width: auto;
-            vertical-align: middle;
-            margin-right: 10px;
-        }
-
-        .main-nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-
-        .main-nav a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            transition: var(--transition);
-            padding: 0.5rem 0;
-            position: relative;
-        }
-
-        .main-nav a:hover {
-            color: var(--tickle-me-pink);
-        }
-
-        .main-nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--tickle-me-pink);
-            bottom: 0;
-            left: 0;
-            transition: var(--transition);
-        }
-
-        .main-nav a:hover::after {
-            width: 100%;
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .search-btn {
-            background: none;
-            border: none;
-            font-size: 1.2rem;
-            color: var(--text-dark);
-            cursor: pointer;
-            transition: var(--transition);
-            padding: 0.5rem;
-        }
-
-        .search-btn:hover {
-            color: var(--tickle-me-pink);
-            transform: scale(1.1);
-        }
-
-        .user-menu {
-            position: relative;
-        }
-
-        .user-btn {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--text-dark);
-            cursor: pointer;
-            transition: var(--transition);
-            padding: 0.5rem;
-        }
-
-        .user-btn:hover {
-            color: var(--tickle-me-pink);
-            transform: scale(1.1);
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            right: 0;
-            top: 100%;
-            background: white;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            min-width: 200px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-            z-index: 100;
-        }
-
-        .user-menu:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-menu a {
-            display: block;
-            padding: 0.8rem 1.5rem;
-            color: var(--text-dark);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .dropdown-menu a:hover {
-            background: var(--champagne);
-            color: var(--raspberry-rose);
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--text-dark);
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        @media (max-width: 992px) {
-            .main-nav ul {
-                gap: 1rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .main-nav {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                right: 0;
-                background: white;
-                padding: 1rem;
-                box-shadow: var(--shadow);
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
-                z-index: 999;
-            }
-
-            .main-nav.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-
-            .main-nav ul {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .main-nav a {
-                display: block;
-                padding: 0.8rem 0;
-            }
-        }
-
         :root {
-            --tickle-me-pink: #F283AF;
-            --champagne: #FBF4EB;
-            --blush: #FBD9E5;
-            --cherry-blossom: #FBD9E5;
-            --raspberry-rose: #C43670;
-            --sunset: #F3CC97;
-            --white: #FFFFFF;
-            --text-dark: #333333;
-            --text-light: #666666;
+            --primary-color: #F8BBD0;
+            --secondary-color: #B3E5FC;
+            --accent-color: #C8E6C9;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #ffffff;
             --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             --transition: all 0.3s ease;
+            --tickle-me-pink: #F283AF;
+            --raspberry-rose: #E91E63;
+            --champagne: #F7E7CE;
+            --blush: #FFE5EC;
         }
 
         * {
@@ -235,11 +35,10 @@
             font-family: 'Poppins', sans-serif;
             color: var(--text-dark);
             line-height: 1.6;
-            background-color: var(--white);
-            padding-top: 80px; /* Add padding to account for fixed header */
+            background: linear-gradient(to bottom, var(--champagne), var(--blush));
+            min-height: 100vh;
         }
 
-        /* Categories Section */
         /* Hero Section */
         .beauty-hero {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
@@ -250,9 +49,7 @@
             justify-content: center;
             text-align: center;
             color: white;
-            margin-top: 80px; /* Account for fixed header */
-            margin-bottom: 4rem;
-            padding-top: 60px; /* Additional padding for better spacing */
+            position: relative;
         }
 
         .hero-content {
@@ -272,205 +69,207 @@
             opacity: 0.9;
         }
 
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--tickle-me-pink);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
 
-        /* Categories Section */
-        .categories {
-            padding: 4rem 0;
-            background-color: var(--champagne);
+        .btn:hover {
+            background: var(--raspberry-rose);
+            transform: translateY(-2px);
+        }
+
+        /* Beauty Cards Section */
+        .beauty-cards {
+            padding: 80px 0;
+            background-color: #fff;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 2rem;
         }
 
-        .section-title {
+        .section-intro {
             text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 3rem;
-            color: var(--raspberry-rose);
-            position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
+            margin-bottom: 60px;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 3px;
-            background: var(--tickle-me-pink);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .category-card {
-            background: var(--white);
-            border-radius: 15px;
-            padding: 2.5rem 1.5rem;
-            text-align: center;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-            cursor: pointer;
-        }
-
-        .category-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .category-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 1.8rem;
-            color: var(--white);
-        }
-
-        .category-card h3 {
-            font-size: 1.4rem;
+        .section-intro h2 {
+            font-size: 2.5rem;
             margin-bottom: 1rem;
             color: var(--text-dark);
+            font-family: 'Playfair Display', serif;
         }
 
-        .category-card p {
-            color: var(--text-light);
+        .section-intro p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .beauty-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 60px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .beauty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .card-header {
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: rgba(255,255,255,0.3);
+            display: block;
+        }
+
+        .card-header .card-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .card-header h3 {
+            font-size: 1.4rem;
+            margin: 15px 0 10px;
+            font-weight: 600;
+        }
+
+        .card-header p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .card-content {
+            padding: 40px 30px;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 15px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .btn-option {
+            background: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 10px 18px;
+            border-radius: 25px;
+            cursor: pointer;
             font-size: 0.95rem;
-            line-height: 1.6;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-option:hover {
+            background: #f0f0f0;
+            border-color: #ddd;
+        }
+
+        .btn-option.active {
+            background: var(--tickle-me-pink);
+            color: white;
+            border-color: var(--tickle-me-pink);
+        }
+
+        .results {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 4px solid var(--tickle-me-pink);
+            display: none;
+        }
+
+        .results h4 {
+            color: var(--raspberry-rose);
+            margin-bottom: 10px;
+        }
+
+        .results ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .results li {
+            margin-bottom: 8px;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            body {
-                padding-top: 70px; /* Adjust for mobile header */
-            }
-            
-            .categories {
-                padding: 1.5rem 5%;
+            .beauty-hero h1 {
+                font-size: 2.2rem;
             }
 
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .categories-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+            .btn-option {
+                padding: 6px 12px;
+                font-size: 0.85rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="site-header">
-        <div class="header-container">
-            <a href="home.html" class="logo">
-                <img src="assets/img/logo.jpg" alt="P-Harmonia Logo">
-                <span>P-Harmonia</span>
-            </a>
-            
-            <button class="mobile-menu-toggle" aria-label="Menú">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <nav class="main-nav">
-                <ul class="nav-links">
-                    <li><a href="home.html" class="active">Inicio</a></li>
-                    <li><a href="belleza.html">Belleza</a></li>
-                    <li><a href="bienestar.html">Bienestar</a></li>
-                    <li><a href="fitness.html">Fitness</a></li>
-                    <li><a href="finanzas.html">Finanzas</a></li>
-                    <li><a href="moda.html">Moda</a></li>
-                </ul>
-            </nav>
-            
-            <div class="header-actions">
-                <button class="search-btn" aria-label="Buscar">
-                    <i class="fas fa-search"></i>
-                </button>
-                <div class="user-menu">
-                    <button class="user-btn" id="userMenuBtn">
-                        <i class="fas fa-user-circle"></i>
-                    </button>
-                    <div class="dropdown-menu" id="userDropdown">
-                        <a href="perfil.html">Mi Perfil</a>
-                        <a href="configuracion.html">Configuración</a>
-                        <a href="#" id="logoutBtn">Cerrar Sesión</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
     <script>
-        // Mobile menu toggle
+        // Load header
         document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            const mainNav = document.querySelector('.main-nav');
-            
-            if (mobileMenuToggle && mainNav) {
-                mobileMenuToggle.addEventListener('click', function() {
-                    mainNav.classList.toggle('active');
-                    this.setAttribute('aria-expanded', 
-                        this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
-                    );
-                });
-            }
-            
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (mobileMenuToggle && mainNav && 
-                    !mobileMenuToggle.contains(e.target) && 
-                    !mainNav.contains(e.target)) {
-                    mainNav.classList.remove('active');
-                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                }
-            });
-            
-            // User dropdown menu
-            const userMenuBtn = document.getElementById('userMenuBtn');
-            const userDropdown = document.getElementById('userDropdown');
-            
-            if (userMenuBtn && userDropdown) {
-                userMenuBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    userDropdown.classList.toggle('active');
-                });
-                
-                // Close dropdown when clicking outside
-                document.addEventListener('click', function() {
-                    userDropdown.classList.remove('active');
-                });
-                
-                // Prevent dropdown from closing when clicking inside
-                userDropdown.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                });
-            }
-            
-            // Logout functionality
-            const logoutBtn = document.getElementById('logoutBtn');
-            if (logoutBtn) {
-                logoutBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    // Add logout logic here
-                    window.location.href = 'index.html';
-                });
-            }
+            fetch('components/header.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('header-placeholder').innerHTML = html;
+                    // Set active link
+                    const currentPage = 'belleza.html';
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        if (link.getAttribute('href') === currentPage) {
+                            link.classList.add('active');
+                        }
+                    });
+                })
+                .catch(error => console.error('Error loading header:', error));
         });
     </script>
 
@@ -483,11 +282,9 @@
         </div>
     </section>
 
-
     <!-- Categories Section -->
     <section class="categories" id="categories">
-        <div class="container">
-            <h2 class="section-title">Categorías de Belleza</h2>
+        <h2 class="section-title">Categorías de Belleza</h2>
         <div class="categories-grid">
             <div class="category-card">
                 <div class="category-icon" style="background-color: var(--blush);">
@@ -496,150 +293,377 @@
                 <h3>Skincare</h3>
                 <p>Rutinas y consejos para una piel radiante y saludable.</p>
             </div>
-            
+            <div class="category-card">
+                <div class="category-icon" style="background-color: var(--champagne);">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <h3>Maquillaje</h3>
+                <p>Técnicas y tendencias para realzar tu belleza natural.</p>
+            </div>
             <div class="category-card">
                 <div class="category-icon" style="background-color: var(--sunset);">
                     <i class="fas fa-cut"></i>
                 </div>
-                <h3>Cabello</h3>
-                <p>Secretos para un cabello hermoso y lleno de vida.</p>
+                <h3>Cuidado Capilar</h3>
+                <p>Tratamientos y estilos para un cabello saludable y brillante.</p>
             </div>
-            
             <div class="category-card">
-                <div class="category-icon" style="background-color: var(--tickle-me-pink);">
-                    <i class="fas fa-palette"></i>
+                <div class="category-icon" style="background-color: var(--raspberry-rose);">
+                    <i class="fas fa-hand-sparkles"></i>
                 </div>
-                <h3>Maquillaje</h3>
-                <p>Técnicas y tendencias para resaltar tu belleza natural.</p>
-            </div>
-            
-            <div class="category-card">
-                <div class="category-icon" style="background-color: var(--champagne);">
-                    <i class="far fa-smile"></i>
-                </div>
-                <h3>Tipo de rostro</h3>
-                <p>Identifica tu tipo de rostro y aprende a realzarlo.</p>
+                <h3>Manicure</h3>
+                <p>Cuidado de uñas y manicuras para manos perfectas.</p>
             </div>
         </div>
     </section>
 
-    <!-- Newsletter Section -->
-    <section class="newsletter">
+    <!-- Beauty Cards Section -->
+    <section class="beauty-cards" id="featured">
         <div class="container">
-            <div class="newsletter-content">
-                <h2>¡No te pierdas nuestros consejos de belleza!</h2>
-                <p>Suscríbete para recibir las últimas tendencias y ofertas exclusivas</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Tu correo electrónico" required>
-                    <button type="submit" class="btn btn-primary">Suscribirse</button>
-                </form>
+            <div class="section-intro" data-aos="fade-up">
+                <h2>Guía de Belleza Personalizada</h2>
+                <p>Selecciona tus preferencias y descubre recomendaciones hechas a tu medida</p>
+            </div>
+            
+            <!-- Card 1: Cabello -->
+            <div class="beauty-card" data-aos="fade-up">
+                <div class="card-header" style="background: linear-gradient(135deg, #F8BBD0, #F48FB1);">
+                    <div class="card-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Descubre tu tipo de cabello y cómo cuidarlo</h3>
+                    <p>Aprende a cuidar, peinar y potenciar tu cabello según su tipo, color y forma de rostro.</p>
+                </div>
+                <div class="card-content">
+                    <div class="form-group">
+                        <label><i class="fas fa-cut"></i> Tipo de cabello:</label>
+                        <div class="btn-group">
+                            <button class="btn-option" data-type="liso"><i class="fas fa-straighten"></i> Liso</button>
+                            <button class="btn-option" data-type="ondulado"><i class="fas fa-wave-square"></i> Ondulado</button>
+                            <button class="btn-option" data-type="rizado"><i class="fas fa-ellipsis"></i> Rizado</button>
+                            <button class="btn-option" data-type="afro"><i class="fas fa-circle"></i> Afro</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-palette"></i> Color de cabello:</label>
+                        <div class="btn-group">
+                            <button class="btn-option" data-color="castano"><i class="fas fa-circle" style="color: #8B4513;"></i> Castaño</button>
+                            <button class="btn-option" data-color="rubio"><i class="fas fa-circle" style="color: #FFD700;"></i> Rubio</button>
+                            <button class="btn-option" data-color="negro"><i class="fas fa-circle" style="color: #000;"></i> Negro</button>
+                            <button class="btn-option" data-color="rojo"><i class="fas fa-circle" style="color: #DC143C;"></i> Rojo</button>
+                        </div>
+                    </div>
+                    <div id="hair-results" class="results"></div>
+                </div>
+            </div>
+
+            <!-- Card 2: Rostro -->
+            <div class="beauty-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-header" style="background: linear-gradient(135deg, #B3E5FC, #81D4FA);">
+                    <div class="card-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <h3>Tu tipo de rostro y cómo realzarlo</h3>
+                    <p>Descubre los mejores estilos y formas para resaltar tu belleza natural.</p>
+                </div>
+                <div class="card-content">
+                    <div class="form-group">
+                        <label>Tipo de rostro:</label>
+                        <div class="btn-group">
+                            <button class="btn-option" data-face="ovalado">Ovalado</button>
+                            <button class="btn-option" data-face="redondo">Redondo</button>
+                            <button class="btn-option" data-face="cuadrado">Cuadrado</button>
+                            <button class="btn-option" data-face="corazon">Corazón</button>
+                        </div>
+                    </div>
+                    <div id="face-results" class="results"></div>
+                </div>
+            </div>
+
+            <!-- Card 3: Skin Care -->
+            <div class="beauty-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-header" style="background: linear-gradient(135deg, #C8E6C9, #A5D6A7);">
+                    <div class="card-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Tu rutina de cuidado facial perfecta</h3>
+                    <p>Personaliza tu rutina según tu tipo de piel y luce una piel radiante.</p>
+                </div>
+                <div class="card-content">
+                    <div class="form-group">
+                        <label>Tipo de piel:</label>
+                        <div class="btn-group">
+                            <button class="btn-option" data-skin="grasa">Grasa</button>
+                            <button class="btn-option" data-skin="seca">Seca</button>
+                            <button class="btn-option" data-skin="mixta">Mixta</button>
+                            <button class="btn-option" data-skin="sensible">Sensible</button>
+                        </div>
+                    </div>
+                    <div id="skin-results" class="results"></div>
+                </div>
+            </div>
+
+            <!-- Card 4: Maquillaje -->
+            <div class="beauty-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="card-header" style="background: linear-gradient(135deg, #E1BEE7, #CE93D8);">
+                    <div class="card-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Maquillaje ideal para cada ocasión</h3>
+                    <p>Aprende qué maquillaje usar según tu tipo de rostro, piel y evento.</p>
+                </div>
+                <div class="card-content">
+                    <div class="form-group">
+                        <label>Ocasión:</label>
+                        <div class="btn-group">
+                            <button class="btn-option" data-occasion="diario">Diario</button>
+                            <button class="btn-option" data-occasion="trabajo">Trabajo</button>
+                            <button class="btn-option" data-occasion="fiesta">Fiesta</button>
+                            <button class="btn-option" data-occasion="noche">Noche</button>
+                        </div>
+                    </div>
+                    <div id="makeup-results" class="results"></div>
+                </div>
             </div>
         </div>
     </section>
 
     <script>
-        // Add animation on scroll
+        // Beauty recommendations data
+        const beautyData = {
+            hair: {
+                liso: {
+                    castano: {
+                        title: "Cabello Liso Castaño",
+                        tips: [
+                            "Usa champú sin sulfatos para mantener el brillo natural",
+                            "Aplica serum anti-frizz para controlar el estático",
+                            "Cepilla con cerdas naturales para distribuir aceites naturales"
+                        ]
+                    },
+                    rubio: {
+                        title: "Cabello Liso Rubio",
+                        tips: [
+                            "Usa champú morado cada 2 semanas para neutralizar tonos amarillos",
+                            "Aplica mascarilla hidratante semanal",
+                            "Protege del sol con spray UV"
+                        ]
+                    }
+                },
+                rizado: {
+                    castano: {
+                        title: "Cabello Rizado Castaño",
+                        tips: [
+                            "Usa productos sin sulfatos para mantener la hidratación",
+                            "Aplica leave-in conditioner en cabello húmedo",
+                            "Seca con toalla de microfibra para reducir frizz"
+                        ]
+                    }
+                }
+            },
+            face: {
+                ovalado: {
+                    title: "Rostro Ovalado",
+                    tips: [
+                        "Lucky you! Casi todos los estilos te favorecen",
+                        "Prueba capas suaves para dar movimiento",
+                        "Evita cortes muy simétricos que puedan alargar demasiado tu rostro"
+                    ]
+                },
+                redondo: {
+                    title: "Rostro Redondo",
+                    tips: [
+                        "Busca cortes con volumen en la parte superior",
+                        "Lados angulares ayudan a crear ilusión de longitud",
+                        "Evita flequillos rectos y cortes con volumen en los lados"
+                    ]
+                }
+            },
+            skin: {
+                grasa: {
+                    title: "Piel Grasa",
+                    tips: [
+                        "Limpia 2 veces al día con limpiador suave",
+                        "Usa productos no comedogénicos",
+                        "Aplica tónico con ácido salicílico 2-3 veces por semana"
+                    ]
+                },
+                seca: {
+                    title: "Piel Seca",
+                    tips: [
+                        "Usa limpiador cremoso o en aceite",
+                        "Aplica sérum con ácido hialurónico",
+                        "No olvides la crema hidratante día y noche"
+                    ]
+                }
+            },
+            makeup: {
+                diario: {
+                    title: "Maquillaje Diario",
+                    tips: [
+                        "Base ligera con SPF 15 o más",
+                        "Corrector solo donde lo necesites",
+                        "Máscara de pestañas y labial nude"
+                    ]
+                },
+                fiesta: {
+                    title: "Maquillaje de Fiesta",
+                    tips: [
+                        "Primer de larga duración",
+                        "Iluminador en pómulos y arco de cupido",
+                        "Labial con pigmento intenso y larga duración"
+                    ]
+                }
+            }
+        };
+
+        // Initialize when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
-            const observerOptions = {
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate');
-                    }
-                });
-            }, observerOptions);
-
-            // Observe all elements that should animate
-            document.querySelectorAll('.category-card').forEach(element => {
-                observer.observe(element);
+            // Initialize AOS
+            AOS.init({
+                duration: 1000,
+                once: true
             });
 
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if (targetId !== '#') {
-                        document.querySelector(targetId).scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
+            // Get all interactive elements
+            const hairTypeBtns = document.querySelectorAll('button[data-type]');
+            const hairColorBtns = document.querySelectorAll('button[data-color]');
+            const faceTypeBtns = document.querySelectorAll('button[data-face]');
+            const skinTypeBtns = document.querySelectorAll('button[data-skin]');
+            const makeupOccasionBtns = document.querySelectorAll('button[data-occasion]');
+
+            // Set up all event listeners
+            function setupEventListeners() {
+                // Hair type/color selection
+                let selectedHairType = null;
+                let selectedHairColor = null;
+
+                hairTypeBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        hairTypeBtns.forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        selectedHairType = this.dataset.type;
+                        if (selectedHairColor) {
+                            updateHairResults(selectedHairType, selectedHairColor);
+                        }
+                    });
                 });
-            });
+
+                hairColorBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        hairColorBtns.forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        selectedHairColor = this.dataset.color;
+                        if (selectedHairType) {
+                            updateHairResults(selectedHairType, selectedHairColor);
+                        }
+                    });
+                });
+
+                // Face type selection
+                faceTypeBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        faceTypeBtns.forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        updateFaceResults(this.dataset.face);
+                    });
+                });
+
+                // Skin type selection
+                skinTypeBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        skinTypeBtns.forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        updateSkinResults(this.dataset.skin);
+                    });
+                });
+
+                // Makeup occasion selection
+                makeupOccasionBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        makeupOccasionBtns.forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        updateMakeupResults(this.dataset.occasion);
+                    });
+                });
+            }
+
+            // Update functions
+            function updateHairResults(type, color) {
+                const results = document.getElementById('hair-results');
+                const data = beautyData.hair[type]?.[color];
+                
+                if (data) {
+                    results.innerHTML = `
+                        <h4>${data.title}</h4>
+                        <ul>
+                            ${data.tips.map(tip => `<li>${tip}</li>`).join('')}
+                        </ul>
+                    `;
+                    results.style.display = 'block';
+                }
+            }
+
+            function updateFaceResults(face) {
+                const results = document.getElementById('face-results');
+                const data = beautyData.face[face];
+                
+                if (data) {
+                    results.innerHTML = `
+                        <h4>${data.title}</h4>
+                        <ul>
+                            ${data.tips.map(tip => `<li>${tip}</li>`).join('')}
+                        </ul>
+                    `;
+                    results.style.display = 'block';
+                }
+            }
+
+            function updateSkinResults(skin) {
+                const results = document.getElementById('skin-results');
+                const data = beautyData.skin[skin];
+                
+                if (data) {
+                    results.innerHTML = `
+                        <h4>${data.title}</h4>
+                        <ul>
+                            ${data.tips.map(tip => `<li>${tip}</li>`).join('')}
+                        </ul>
+                    `;
+                    results.style.display = 'block';
+                }
+            }
+
+            function updateMakeupResults(occasion) {
+                const results = document.getElementById('makeup-results');
+                const data = beautyData.makeup[occasion];
+                
+                if (data) {
+                    results.innerHTML = `
+                        <h4>${data.title}</h4>
+                        <ul>
+                            ${data.tips.map(tip => `<li>${tip}</li>`).join('')}
+                        </ul>
+                    `;
+                    results.style.display = 'block';
+                }
+            }
+
+            // Initialize the app
+            setupEventListeners();
         });
     </script>
-    
-    <style>
-        /* Newsletter Section */
-        .newsletter {
-            background: linear-gradient(135deg, var(--tickle-me-pink), var(--raspberry-rose));
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
 
-        .newsletter h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .newsletter p {
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        .newsletter-form {
-            display: flex;
-            max-width: 500px;
-            margin: 0 auto;
-            gap: 1rem;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 0.8rem 1.2rem;
-            border: none;
-            border-radius: 30px;
-            font-size: 1rem;
-            outline: none;
-        }
-
-        .newsletter-form button {
-            padding: 0.8rem 2rem;
-            border: 2px solid white;
-            background: transparent;
-            color: white;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .newsletter-form button:hover {
-            background: white;
-            color: var(--raspberry-rose);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .beauty-hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .newsletter-form {
-                flex-direction: column;
-                padding: 0 1rem;
-            }
-
-            .newsletter-form button,
-            .newsletter-form input {
-                width: 100%;
-            }
-        }
-    </style>
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+    <script>
+        // Load footer
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+    </script>
 </body>
 </html>
