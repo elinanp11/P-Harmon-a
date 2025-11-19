@@ -1,6 +1,0 @@
-﻿# P-Harmonia
-# P-Harmonia
-# P-Harmon-a
-# P-Harmon-a
-# P-Harmon-a
-
