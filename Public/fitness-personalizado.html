@@ -18,7 +18,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="/P-Harmon-a/Public/assets/css/header.css">
     
     <style>
         :root {
@@ -1634,13 +1634,13 @@
         };
         
         // Load header and footer
-        fetch('components/header.html')
+        fetch('/P-Harmon-a/Public/components/header.html')
             .then(response => response.text())
             .then(html => {
                 document.getElementById('header-placeholder').innerHTML = html;
             });
             
-        fetch('components/footer.html')
+        fetch('/P-Harmon-a/Public/components/footer.html')
             .then(response => response.text())
             .then(html => {
                 document.getElementById('footer-container').innerHTML = html;
@@ -1912,7 +1912,7 @@
                     const videoCard = document.createElement('div');
                     videoCard.className = 'video-card';
                     videoCard.innerHTML = `
-                        <iframe src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="/P-Harmon-a/Public/${videoUrl}" frameborder="0" allowfullscreen></iframe>
                     `;
                     videosContainer.appendChild(videoCard);
                 });
