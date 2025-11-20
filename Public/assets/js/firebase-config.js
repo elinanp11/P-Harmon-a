@@ -1,51 +1,47 @@
 // Firebase Configuration for P-Harmonia
-// Este archivo carga las credenciales desde las variables de entorno
+// Configuración para GitHub Pages
 
 // Importar las funciones necesarias de Firebase
-import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
-import { getStorage } from 'firebase/storage';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
+import { 
+  getAuth, 
+  onAuthStateChanged, 
+  signOut,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword
+} from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js';
+import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js';
+import { getStorage } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js';
 
-// Configuración de Firebase usando variables de entorno
+// Configuración de Firebase
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID
+  apiKey: "AIzaSyC1lVQ4K4F7X9X9X9X9X9X9X9X9X9X",
+  authDomain: "p-harmonia.firebaseapp.com",
+  projectId: "p-harmonia",
+  storageBucket: "p-harmonia.appspot.com",
+  messagingSenderId: "123456789012",
+  appId: "1:123456789012:web:1234567890abcdef12345"
 };
-
-// Verificar que todas las variables estén definidas
-const requiredEnvVars = [
-  'VITE_FIREBASE_API_KEY',
-  'VITE_FIREBASE_AUTH_DOMAIN', 
-  'VITE_FIREBASE_PROJECT_ID',
-  'VITE_FIREBASE_STORAGE_BUCKET',
-  'VITE_FIREBASE_MESSAGING_SENDER_ID',
-  'VITE_FIREBASE_APP_ID'
-];
-
-const missingVars = requiredEnvVars.filter(varName => !import.meta.env[varName]);
-
-if (missingVars.length > 0) {
-  console.error('❌ Variables de entorno faltantes:', missingVars);
-  console.error('Por favor verifica tu archivo .env');
-}
 
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 
 // Inicializar servicios de Firebase
-export const auth = getAuth(app);
-export const db = getFirestore(app);
-export const storage = getStorage(app);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const storage = getStorage(app);
 
-// Exportar la app por si se necesita
-export default app;
+// Exportar las instancias
+export { 
+  app, 
+  auth, 
+  db, 
+  storage, 
+  onAuthStateChanged, 
+  signOut,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword
+};
 
-// Log para confirmar inicialización (solo en desarrollo)
-if (import.meta.env.DEV) {
-  console.log('🔥 Firebase inicializado correctamente para P-Harmonia');
-}
+// Log para confirmar inicialización
+console.log('🔥 Firebase inicializado correctamente para P-Harmonia');

@@ -6,9 +6,13 @@
             <span>P-Harmonia</span>
         </a>
 
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
 
         <!-- Main Navigation -->
-        <nav class="main-nav">
+        <nav class="main-nav" id="mainNav">
             <ul class="nav-links">
                 <li><a href="/P-Harmon-a/Public/home.html" class="nav-link">Inicio</a></li>
                 <li><a href="/P-Harmon-a/Public/belleza.html" class="nav-link">Belleza</a></li>
@@ -17,17 +21,23 @@
                 <li><a href="/P-Harmon-a/Public/finanzas.html" class="nav-link">Finanzas</a></li>
                 <li><a href="/P-Harmon-a/Public/moda.html" class="nav-link">Moda</a></li>
             </ul>
+
+            <!-- Auth Buttons (shown when not logged in) -->
+            <div class="auth-buttons">
+                <a href="/P-Harmon-a/Public/login.html" class="btn btn-outline" id="loginBtn">Iniciar Sesión</a>
+                <a href="/P-Harmon-a/Public/register.html" class="btn btn-primary" id="registerBtn">Registrarse</a>
+            </div>
         </nav>
 
-        <!-- User Menu -->
-        <div class="user-menu">
+        <!-- User Menu (shown when logged in) -->
+        <div class="user-menu" id="userMenu" style="display: none;">
             <div class="user-dropdown">
-                <button class="user-btn" id="userMenuBtn">
+                <button class="user-btn" id="userMenuBtn" aria-expanded="false" aria-haspopup="true">
                     <i class="fas fa-user-circle"></i>
                     <span class="user-name">Usuario</span>
                     <i class="fas fa-chevron-down"></i>
                 </button>
-                <div class="dropdown-menu" id="userDropdown">
+                <div class="dropdown-menu" id="userDropdown" aria-labelledby="userMenuBtn">
                     <a href="/P-Harmon-a/Public/profile.html" class="dropdown-item">
                         <i class="fas fa-user"></i> Mi Perfil
                     </a>

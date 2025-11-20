@@ -4,23 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar sesión | P-Harmonia</title>
+    <meta name="description" content="Inicia sesión en P-Harmonia para acceder a contenido exclusivo de bienestar, belleza, fitness y más.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/P-Harmon-a/Public/assets/img/favicon.ico">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         :root {
             --tickle-me-pink: #F283AF;
             --champagne: #FBF4EB;
             --blush: #FBD9E5;
-            --cherry-blossom: #FBD9E5;
             --raspberry-rose: #C43670;
             --sunset: #F3CC97;
             --white: #FFFFFF;
             --text-dark: #333333;
             --text-light: #666666;
+            --border-radius: 8px;
             --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             --transition: all 0.3s ease;
+            --header-height: 70px;
         }
 
         * {
@@ -37,16 +49,65 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            padding-top: var(--header-height);
+        }
+        
+        /* Skip to content link for accessibility */
+        .skip-to-content {
+            position: absolute;
+            left: -9999px;
+            z-index: 999;
+            padding: 1em;
+            background-color: var(--white);
+            color: var(--raspberry-rose);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        .skip-to-content:focus {
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 1;
         }
 
         /* Header Styles */
-        header {
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+        }
+        
+        .header-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 5%;
-            background-color: var(--white);
-            box-shadow: var(--shadow);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--raspberry-rose);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+            vertical-align: middle;
         }
 
         .logo {
