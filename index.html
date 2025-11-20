@@ -18,6 +18,11 @@
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/P-Harmon-a/Public/assets/css/style.css">
+    <link rel="stylesheet" href="/P-Harmon-a/Public/assets/css/header.css">
+    <link rel="stylesheet" href="/P-Harmon-a/Public/assets/css/animations.css">
+    
     <style>
         :root {
             --tickle-me-pink: #F283AF;
@@ -720,11 +725,11 @@
             P-Harmonia
         </a>
             <div class="header-buttons">
-                <a href="public/login.html" class="btn btn-login">
+                <a href="/P-Harmon-a/Public/public/login.html" class="btn btn-login">
                     <i class="fas fa-sign-in-alt"></i>
                     <span>Iniciar sesión</span>
                 </a>
-                <a href="public/register.html" class="btn btn-register">
+                <a href="/P-Harmon-a/Public/public/register.html" class="btn btn-register">
                     <i class="fas fa-user-plus"></i>
                     <span>Registrarse</span>
                 </a>
@@ -998,6 +1003,9 @@
 
     <!-- AOS Animation -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="/P-Harmon-a/Public/js/init.js"></script>
+
     <script>
         // Initialize AOS
         AOS.init({
@@ -1242,7 +1250,7 @@
     <script>
         // Función para cargar el footer
         function loadFooter() {
-            fetch('components/footer.html')
+            fetch('/P-Harmon-a/Public/components/footer.html')
                 .then(response => response.text())
                 .then(html => {
                     document.getElementById('footer-container').innerHTML = html;
