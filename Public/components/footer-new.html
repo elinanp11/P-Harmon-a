@@ -1,0 +1,242 @@
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">P-Harmonia</h3>
+                <p>Tu guía integral para una vida saludable y equilibrada. Encuentra todo lo que necesitas para tu bienestar físico, mental y financiero.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Enlaces Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="/P-Harmon-a/Public/home.html" class="footer-link">Inicio</a></li>
+                    <li><a href="/P-Harmon-a/Public/fitness-personalizado.html" class="footer-link">Fitness</a></li>
+                    <li><a href="/P-Harmon-a/Public/belleza.html" class="footer-link">Belleza</a></li>
+                    <li><a href="/P-Harmon-a/Public/moda.html" class="footer-link">Moda</a></li>
+                    <li><a href="/P-Harmon-a/Public/finanzas.html" class="footer-link">Finanzas</a></li>
+                    <li><a href="/P-Harmon-a/Public/comunidad.html" class="footer-link">Comunidad</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Recursos</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Blog</a></li>
+                    <li><a href="#" class="footer-link">Recetas Saludables</a></li>
+                    <li><a href="#" class="footer-link">Rutinas de Ejercicio</a></li>
+                    <li><a href="#" class="footer-link">Consejos de Belleza</a></li>
+                    <li><a href="#" class="footer-link">Finanzas Personales</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Contacto</h3>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-envelope"></i> info@pharmonia.com</li>
+                    <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Ciudad, País</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 P-Harmonia. Todos los derechos reservados.</p>
+            <div class="footer-legal">
+                <a href="#" class="footer-legal-link">Términos de Servicio</a>
+                <span class="divider">|</span>
+                <a href="#" class="footer-legal-link">Política de Privacidad</a>
+                <span class="divider">|</span>
+                <a href="#" class="footer-legal-link">Cookies</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+    /* Footer Styles */
+    .footer {
+        background-color: var(--dark);
+        color: white;
+        padding: var(--spacing-xl) 0 0;
+        position: relative;
+    }
+    
+    .footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+    
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-lg);
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .footer-section {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .footer-title {
+        color: white;
+        font-size: 1.25rem;
+        margin-bottom: var(--spacing-md);
+        position: relative;
+        padding-bottom: 0.75rem;
+    }
+    
+    .footer-title::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 40px;
+        height: 3px;
+        background: var(--primary);
+        border-radius: 2px;
+    }
+    
+    .footer p {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: var(--spacing-md);
+        line-height: 1.7;
+    }
+    
+    .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .footer-link, 
+    .footer-contact li {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        display: block;
+        padding: 0.5rem 0;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    
+    .footer-link:hover {
+        color: var(--primary);
+        padding-left: 5px;
+    }
+    
+    .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: var(--spacing-md);
+    }
+    
+    .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        font-size: 1rem;
+        transition: var(--transition);
+    }
+    
+    .social-link:hover {
+        background: var(--primary);
+        transform: translateY(-3px);
+    }
+    
+    .footer-contact li {
+        margin-bottom: 0.75rem;
+    }
+    
+    .footer-contact i {
+        width: 20px;
+        text-align: center;
+        color: var(--primary);
+    }
+    
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: var(--spacing-md) 0;
+        text-align: center;
+    }
+    
+    .footer-bottom p {
+        margin-bottom: 0.5rem;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+    }
+    
+    .footer-legal {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .footer-legal-link {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        font-size: 0.85rem;
+        transition: var(--transition);
+    }
+    
+    .footer-legal-link:hover {
+        color: var(--primary);
+    }
+    
+    .divider {
+        color: rgba(255, 255, 255, 0.3);
+    }
+    
+    @media (max-width: 768px) {
+        .footer-content {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
+        
+        .footer-section {
+            text-align: center;
+            padding: 0;
+        }
+        
+        .footer-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .social-links {
+            justify-content: center;
+        }
+        
+        .footer-link, 
+        .footer-contact li {
+            justify-content: center;
+        }
+        
+        .footer-legal {
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .divider {
+            display: none;
+        }
+    }
+</style>
