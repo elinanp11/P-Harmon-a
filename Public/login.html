@@ -899,6 +899,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     Iniciar sesión
                 </button>
 
+                <div class="divider">
+                    <span>o inicia sesión con</span>
+                </div>
+
+                <button type="button" class="btn btn-github" onclick="loginWithGitHub()">
+                    <i class="fab fa-github"></i> Continuar con GitHub
+                </button>
+
                 <div class="form-footer">
                     <p>¿No tienes una cuenta? <a href="/P-Harmon-a/Public/register.html">Regístrate aquí</a></p>
                 </div>
@@ -907,6 +915,22 @@ document.addEventListener('DOMContentLoaded', () => {
     </main>
 
     <script>
+        // GitHub OAuth Configuration
+        const GITHUB_CLIENT_ID = 'YOUR_GITHUB_CLIENT_ID'; // Replace with your GitHub OAuth App Client ID
+        const GITHUB_REDIRECT_URI = `${window.location.origin}/P-Harmon-a/Public/github-callback.html`;
+        
+        // Function to initiate GitHub OAuth flow
+        function loginWithGitHub() {
+            // Store the current URL to redirect back after login
+            localStorage.setItem('preAuthUrl', window.location.href);
+            
+            // GitHub OAuth URL
+            const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}&redirect_uri=${encodeURIComponent(GITHUB_REDIRECT_URI)}&scope=user:email`;
+            
+            // Redirect to GitHub for authentication
+            window.location.href = githubAuthUrl;
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('loginForm');
             const errorDiv = document.getElementById('error-message');
