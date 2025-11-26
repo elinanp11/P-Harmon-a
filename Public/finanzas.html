@@ -494,30 +494,57 @@
 
         /* Tips Section */
         .tips-section {
-            background-color: var(--white);
-            border-radius: 15px;
-            padding: 2.5rem;
-            margin-bottom: 4rem;
-            box-shadow: var(--shadow);
+            margin: 3rem 0;
+            padding: 2rem 1.5rem;
+            background: linear-gradient(135deg, #f9f5ff, #f0e5ff);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(139, 95, 191, 0.1);
         }
 
         .tips-section h2 {
-            font-size: 1.5rem;
+            color: var(--primary-color);
+            text-align: center;
             margin-bottom: 2rem;
-            color: var(--raspberry-rose);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .tips-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        #financial-tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
         .tip {
-            background-color: var(--blush);
-            border-radius: 10px;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             display: flex;
-            align-items: center;
-            gap: 1rem;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .tip:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(139, 95, 191, 0.15);
         }
 
         .tip i {
@@ -1329,12 +1356,18 @@ document.addEventListener('DOMContentLoaded', () => {
         </section>
 
         <!-- Tips Section -->
-        <section class="tips-section">
+        <section class="tips-section" data-aos="fade-up">
             <h2><i class="fas fa-lightbulb"></i> Consejos financieros</h2>
             <div id="financial-tips">
                 <div class="tip">
                     <i class="fas fa-piggy-bank"></i>
-                    <p>¡Bienvenida! Registra tus ingresos y gastos para recibir consejos personalizados.</p>
+                    <div class="tip-content">
+                        <p>¡Bienvenida! Registra tus ingresos y gastos para recibir consejos personalizados.</p>
+                        <div class="tip-footer">
+                            <span>Consejo financiero</span>
+                            <span><i class="far fa-clock"></i> ${new Date().toLocaleDateString()}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1692,9 +1725,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Update the tips section
             financialTips.innerHTML = tips.map(tip => `
-                <div class="tip">
+                <div class="tip" data-aos="fade-up">
                     <i class="fas fa-${tip.icon}"></i>
-                    <p>${tip.text}</p>
+                    <div class="tip-content">
+                        <p>${tip.text}</p>
+                        <div class="tip-footer">
+                            <span>Consejo financiero</span>
+                            <span><i class="far fa-clock"></i> ${new Date().toLocaleDateString()}</span>
+                        </div>
+                    </div>
                 </div>
             `).join('');
         }
