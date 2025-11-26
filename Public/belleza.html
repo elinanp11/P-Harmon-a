@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belleza - P-Harmonia</title>
+    <meta name="description" content="Descubre los mejores consejos de belleza para resaltar tu belleza natural. Cuidado del cabello, rostro, piel y maquillaje.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --tickle-me-pink: #F283AF;
+            --champagne: #FBF4EB;
+            --blush: #FBD9E5;
+            --cherry-blossom: #FBD9E5;
+            --raspberry-rose: #C43670;
+            --sunset: #F3CC97;
+            --white: #FFFFFF;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--champagne);
+            padding-top: 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .beauty-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 4rem 2rem 2rem;
+            background: linear-gradient(135deg, rgba(242, 131, 175, 0.1), rgba(196, 54, 112, 0.1));
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .beauty-header:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #F8B195, #F67280, #C06C84, #6C5B7B, #355C7D);
+        }
+
+        .beauty-header h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--raspberry-rose);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .beauty-header p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+            perspective: 1000px;
+        }
+
+        .beauty-card {
+            transform-style: preserve-3d;
+            transition: transform 0.6s, box-shadow 0.4s;
+        }
+
+        .beauty-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .beauty-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            height: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .beauty-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(242, 131, 175, 0.2);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--tickle-me-pink), var(--raspberry-rose));
+            color: white;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .beauty-card:hover .card-header {
+            padding-bottom: 2.5rem;
+        }
+
+        .card-header:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        .beauty-card:hover .card-header:after {
+            transform: scaleX(1);
+        }
+
+        .card-header i {
+            font-size: 2.8rem;
+            margin-bottom: 1.2rem;
+            display: inline-block;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .beauty-card:hover .card-header i {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .card-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--white);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C43670' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1.2em;
+            padding-right: 2.5rem;
+        }
+
+        .form-select:focus {
+            border-color: var(--tickle-me-pink);
+            box-shadow: 0 0 0 3px rgba(242, 131, 175, 0.25);
+            outline: none;
+        }
+
+        .result {
+            display: none;
+            margin: 2rem -1.5rem -1rem;
+            padding: 1.8rem 1.5rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(251, 244, 235, 0.6));
+            border-radius: 0 0 12px 12px;
+            animation: fadeIn 0.6s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+            opacity: 0;
+            transform: translateY(10px);
+            border-top: 1px solid rgba(0, 0, 0, 0.03);
+            box-shadow: inset 0 10px 20px -10px rgba(0, 0, 0, 0.05);
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result h4 {
+            color: var(--raspberry-rose);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .result p, .result ul {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .result ul {
+            padding-left: 1.2rem;
+        }
+
+        .result li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .result li:before {
+            content: '•';
+            color: var(--tickle-me-pink);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .motivational-quote {
+            font-style: italic;
+            text-align: center;
+            margin: 4rem 0;
+            padding: 2rem;
+            color: var(--raspberry-rose);
+            font-size: 1.3rem;
+            opacity: 0.9;
+            position: relative;
+            background: linear-gradient(135deg, rgba(251, 244, 235, 0.6), rgba(255, 255, 255, 0.8));
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .motivational-quote:before,
+        .motivational-quote:after {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--tickle-me-pink);
+            opacity: 0.3;
+            position: absolute;
+            line-height: 1;
+        }
+
+        .motivational-quote:before {
+            top: 10px;
+            left: 20px;
+        }
+
+        .motivational-quote:after {
+            bottom: -20px;
+            right: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .cards-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .beauty-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .motivational-quote {
+                font-size: 1.1rem;
+                padding: 1.5rem;
+            }
+
+            .motivational-quote:before,
+            .motivational-quote:after {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .beauty-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .beauty-header p {
+                font-size: 0.95rem;
+            }
+
+            .motivational-quote {
+                margin: 3rem 0;
+                padding: 1.5rem 1rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* Card-specific styles */
+        .hair-card .card-header { background: linear-gradient(135deg, #F8B195, #F67280); }
+        .face-card .card-header { background: linear-gradient(135deg, #F9D5BB, #FF9A8B); }
+        .skincare-card .card-header { background: linear-gradient(135deg, #A8E6CF, #DCEDC1); }
+        .makeup-card .card-header { background: linear-gradient(135deg, #D4A5E8, #B388EB); }
+
+        /* Button styles */
+        .beauty-card .btn {
+            display: inline-block;
+            background: var(--raspberry-rose);
+            color: white;
+            padding: 0.9rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            margin-top: 1.2rem;
+            width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.85rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .beauty-card .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(45deg, var(--tickle-me-pink), var(--raspberry-rose));
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+            opacity: 0.9;
+        }
+
+        .beauty-card .btn:hover:before {
+            width: 100%;
+        }
+
+        .beauty-card .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(196, 54, 112, 0.3);
+        }
+
+        .beauty-card .btn:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-spa"></i>
+                <span>P-Harmonia</span>
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="belleza.html" class="active">Belleza</a></li>
+                    <li><a href="comunidad.html">Comunidad</a></li>
+                    <li><a href="fitness-personalizado.html">Fitness</a></li>
+                    <li><a href="finanzas.html">Finanzas</a></li>
+                    <li><a href="moda.html">Moda</a></li>
+                </ul>
+                <div class="auth-buttons" id="authButtons">
+                    <a href="pages/login.html" class="btn btn-outline">Iniciar Sesión</a>
+                    <a href="pages/register.html" class="btn btn-primary">Registrarse</a>
+                </div>
+            </nav>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <header class="beauty-header" data-aos="fade-up">
+            <h1>Tu Guía de Belleza Personalizada</h1>
+            <p>Descubre los mejores consejos para resaltar tu belleza natural. Personaliza según tus características y necesidades.</p>
+        </header>
+
+        <div class="cards-container">
+            <!-- Card 1: Cabello -->
+            <div class="beauty-card hair-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-header">
+                    <i class="fas fa-spa"></i>
+                    <h2>Descubre tu tipo de cabello</h2>
+                </div>
+                <div class="card-content">
+                    <div class="form-group">
+                        <label for="hair-type">Tipo de cabello</label>
+                        <select id="hair-type" class="form-select">
+                            <option value="">Selecciona tu tipo de cabello</option>
+                            <option value="liso">Liso</option>
+                            <option value="ondulado">Ondulado</option>
+                            <option value="rizado">Rizado</option>
+                            <option value="afro">Afro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="hair-color">Color de cabello</label>
+                        <select id="hair-color" class="form-select">
+                            <option value="">Selecciona tu color</option>
+                            <option value="natural">Natural</option>
+                            <option value="rubio">Rubio</option>
+                            <option value="castano">Castaño</option>
+                            <option value="negro">Negro</option>
+                            <option value="rojo">Rojo</option>
+                            <option value="teñido">Teñido</option>
+                        </select>
+                    </div>
+
+                    <div id="hair-result" class="result">
+                        <!-- Results will be inserted here by JavaScript -->
+                    </div>
+
+                    <button id="hair-submit" class="btn">Ver recomendaciones</button>
+                </div>
+            </div>
+
+            <!-- Card 2: Rostro -->
+            <div class="beauty-card face-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-header">
+                    <i class="far fa-smile"></i>
+                    <h2>Tu tipo de rostro</h2>
+                </div>
+                <div class="card-content">
+                    <div class="form-group">
+                        <label for="face-shape">Forma de tu rostro</label>
+                        <select id="face-shape" class="form-select">
+                            <option value="">Selecciona tu tipo de rostro</option>
+                            <option value="ovalado">Ovalado</option>
+                            <option value="redondo">Redondo</option>
+                            <option value="cuadrado">Cuadrado</option>
+                            <option value="alargado">Alargado</option>
+                            <option value="corazon">Corazón</option>
+                            <option value="diamante">Diamante</option>
+                        </select>
+                    </div>
+
+                    <div id="face-result" class="result">
+                        <!-- Results will be inserted here by JavaScript -->
+                    </div>
+
+                    <button id="face-submit" class="btn">Ver recomendaciones</button>
+                </div>
+            </div>
+
+            <!-- Card 3: Skin Care -->
+            <div class="beauty-card skincare-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="card-header">
+                    <i class="fas fa-leaf"></i>
+                    <h2>Tu rutina de cuidado facial</h2>
+                </div>
+                <div class="card-content">
+                    <div class="form-group">
+                        <label for="skin-type">Tipo de piel</label>
+                        <select id="skin-type" class="form-select">
+                            <option value="">Selecciona tu tipo de piel</option>
+                            <option value="grasa">Grasa</option>
+                            <option value="seca">Seca</option>
+                            <option value="mixta">Mixta</option>
+                            <option value="sensible">Sensible</option>
+                        </select>
+                    </div>
+
+                    <div id="skincare-result" class="result">
+                        <!-- Results will be inserted here by JavaScript -->
+                    </div>
+
+                    <button id="skincare-submit" class="btn">Ver rutina</button>
+                </div>
+            </div>
+
+            <!-- Card 4: Maquillaje -->
+            <div class="beauty-card makeup-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="card-header">
+                    <i class="fas fa-palette"></i>
+                    <h2>Maquillaje ideal</h2>
+                </div>
+                <div class="card-content">
+                    <div class="form-group">
+                        <label for="makeup-occasion">Ocasión</label>
+                        <select id="makeup-occasion" class="form-select">
+                            <option value="">Selecciona una ocasión</option>
+                            <option value="diario">Diario</option>
+                            <option value="elegante">Elegante</option>
+                            <option value="noche">Noche</option>
+                            <option value="fiesta">Fiesta</option>
+                            <option value="profesional">Profesional</option>
+                        </select>
+                    </div>
+
+                    <div id="makeup-result" class="result">
+                        <!-- Results will be inserted here by JavaScript -->
+                    </div>
+
+                    <button id="makeup-submit" class="btn">Ver looks</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="motivational-quote" data-aos="fade-up">
+            "Tu belleza empieza con conocerte a ti misma. Descubre el secreto para brillar cada día ✨"
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="footer-logo">
+                        <i class="fas fa-spa"></i>
+                        <span>P-Harmonia</span>
+                    </a>
+                    <p>Tu espacio de bienestar y belleza personalizado.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Explorar</h3>
+                    <ul>
+                        <li><a href="belleza.html">Belleza</a></li>
+                        <li><a href="moda.html">Moda</a></li>
+                        <li><a href="fitness-personalizado.html">Fitness</a></li>
+                        <li><a href="finanzas.html">Finanzas</a></li>
+                        <li><a href="comunidad.html">Comunidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-envelope"></i> info@pharmonia.com</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 P-Harmonia. Todos los derechos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#">Términos de uso</a>
+                    <a href="#">Política de privacidad</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mainNav = document.querySelector('.main-nav');
+            
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    mainNav.classList.toggle('active');
+                    this.setAttribute('aria-expanded', 
+                        this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
+                    );
+                });
+            }
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!mainNav.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+                    mainNav.classList.remove('active');
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        // Hair care recommendations
+        const hairRecommendations = {
+            liso: {
+                cuidado: "Usa shampoo sin sulfatos y acondicionador hidratante. Aplica mascarilla una vez por semana.",
+                corte: "Cortes rectos o en capas medianas que resalten la suavidad de tu cabello.",
+                accesorios: "Diademas elegantes o pinzas para recoger suavemente.",
+                tips: "Evita el exceso de calor y usa protector térmico antes de usar planchas."
+            },
+            ondulado: {
+                cuidado: "Usa productos sin sal y con aceite de argán para definir los rizos.",
+                corte: "Cortes en capas que resalten el movimiento natural de tus ondas.",
+                accesorios: "Ganchos invisibles o cintas para el cabello que no dañen el patrón de onda.",
+                tips: "Aplica crema para peinar en húmedo y deja secar al aire para mejores resultados."
+            },
+            rizado: {
+                cuidado: "Usa productos ricos en manteca de karité y aceite de coco para mantener la hidratación.",
+                corte: "Cortes que sigan la forma natural de tus rizos, evitando capas muy delgadas.",
+                accesorios: "Pañuelos de seda o bandas elásticas suaves para recoger sin dañar.",
+                tips: "Lava con agua fría y usa el método de \"diffusing\" para secar sin frizz."
+            },
+            afro: {
+                cuidado: "Hidratación intensiva con aceites naturales como el de argán o jojoba.",
+                corte: "Cortes que respeten la textura natural, como el afro o trenzas protectoras.",
+                accesorios: "Turbantes o pañuelos de seda para proteger durante la noche.",
+                tips: "Reduce el lavado a una vez por semana y usa el método LOC (Liquid, Oil, Cream)."
+            }
+        };
+
+        // Face shape recommendations
+        const faceRecommendations = {
+            ovalado: {
+                peinado: "Casi cualquier estilo te favorece. Prueba capas suaves o flequillo lateral.",
+                cejas: "Forma suave y natural, ligeramente arqueadas.",
+                maquillaje: "Puedes jugar con contornos y colores, ya que tu rostro es equilibrado."
+            },
+            redondo: {
+                peinado: "Cortes con volumen en la parte superior y lados más ajustados.",
+                cejas: "Cejas con arco alto para alargar visualmente el rostro.",
+                maquillaje: "Contornea ligeramente debajo de los pómulos para mayor definición."
+            },
+            cuadrado: {
+                peinado: "Ondas suaves y capas que enmarquen el rostro para suavizar los ángulos.",
+                cejas: "Cejas redondeadas para contrastar con las líneas rectas.",
+                maquillaje: "Ilumina el centro del rostro y difumina el contorno."
+            },
+            alargado: {
+                peinado: "Flequillo recto o cortes a la altura de los hombros para acortar visualmente.",
+                cejas: "Cejas rectas para no alargar más el rostro.",
+                maquillaje: "Aplica rubor en las manzanas de las mejillas horizontalmente."
+            },
+            corazon: {
+                peinado: "Estilos con volumen en la mandíbula para equilibrar la frente ancha.",
+                cejas: "Cejas redondeadas para suavizar la forma del corazón.",
+                maquillaje: "Enfócate en resaltar los pómulos y la mandíbula."
+            },
+            diamante: {
+                peinado: "Estilos con volumen en la parte superior y en la barbilla.",
+                cejas: "Cejas ligeramente redondeadas para suavizar los ángulos.",
+                maquillaje: "Ilumina el centro de la frente y la barbilla."
+            }
+        };
+
+        // Skincare recommendations
+        const skincareRecommendations = {
+            grasa: {
+                rutina: "Limpia con un gel espumoso, usa tónico sin alcohol, sérum de niacinamida y crema oil-free.",
+                productos: "Busca ingredientes como ácido salicílico y arcilla.",
+                consejos: "No saltes la hidratación, usa productos oil-free.",
+                evitar: "Productos comedogénicos o con aceites pesados."
+            },
+            seca: {
+                rutina: "Limpia con leche o aceite, tónico hidratante, ácido hialurónico y crema rica en ceramidas.",
+                productos: "Busca ácido hialurónico, manteca de karité y aceites naturales.",
+                consejos: "Aplica la crema con la piel ligeramente húmeda.",
+                evitar: "Agua muy caliente y productos con alcohol."
+            },
+            mixta: {
+                rutina: "Limpia con gel suave, tónico equilibrador, hidratación ligera y tratamiento localizado en zonas grasas.",
+                productos: "Ácido glicólico para exfoliar y ácido hialurónico para hidratar.",
+                consejos: "Puedes usar productos diferentes en distintas zonas del rostro.",
+                evitar: "Productos demasiado agresivos que desequilibren más la piel."
+            },
+            sensible: {
+                rutina: "Limpia con productos sin fragancia, tónico calmante y crema con prebióticos.",
+                productos: "Agua termal, centella asiática y aloe vera.",
+                consejos: "Haz prueba de parche con nuevos productos.",
+                evitar: "Fragancias, alcohol y exfoliantes físicos agresivos."
+            }
+        };
+
+        // Makeup recommendations
+        const makeupRecommendations = {
+            diario: {
+                estilo: "Natural y fresco. Base ligera, máscara de pestañas y un toque de labial nude.",
+                productos: "BB cream, corrector, máscara de pestañas y labial mate o brillo.",
+                tonos: "Tonos tierra, rosas naturales y beige.",
+                duracion: "Fija con spray para mantener el look fresco todo el día."
+            },
+            elegante: {
+                estilo: "Sofisticado y pulido. Base de cobertura media, ojos ahumados y labios en tonos clásicos.",
+                productos: "Base de larga duración, sombras neutras, delineador y labial rojo o rosa oscuro.",
+                tonos: "Marrón, dorado, vino y rojos clásicos.",
+                duracion: "Usa prebase y fijador para mayor duración."
+            },
+            noche: {
+                estilo: "Dramático y sensual. Ojos ahumados intensos o labios oscuros (nunca ambos).",
+                productos: "Base mate, sombras oscuras, pestañas postizas y labial de larga duración.",
+                tonos: "Negro, gris, morado oscuro o rojo intenso.",
+                duracion: "Asegúrate de usar base y sellador para que dure toda la noche."
+            },
+            fiesta: {
+                estilo: "Divertido y llamativo. Puedes jugar con colores y brillos.",
+                productos: "Iluminador, sombras metálicas, purpurina y fijador en spray.",
+                tonos: "Dorado, plateado, azul eléctrico o rosa neón.",
+                duracion: "Usa productos a prueba de agua y fija bien cada capa."
+            },
+            profesional: {
+                estilo: "Pulido y discreto. Enfocado en una piel perfecta y mirada despierta.",
+                productos: "Base ligera, corrector, máscara de pestañas y un labial discreto.",
+                tonos: "Beige, marrón claro y rosas discretos.",
+                duracion: "Opta por productos mate y de larga duración."
+            }
+        };
+
+        // Event listeners for buttons
+        document.getElementById('hair-submit').addEventListener('click', showHairRecommendations);
+        document.getElementById('face-submit').addEventListener('click', showFaceRecommendations);
+        document.getElementById('skincare-submit').addEventListener('click', showSkincareRecommendations);
+        document.getElementById('makeup-submit').addEventListener('click', showMakeupRecommendations);
+
+        // Show hair recommendations
+        function showHairRecommendations() {
+            const hairType = document.getElementById('hair-type').value;
+            const hairColor = document.getElementById('hair-color').value;
+            const resultDiv = document.getElementById('hair-result');
+            
+            if (!hairType || !hairColor) {
+                alert('Por favor, completa toda la información.');
+                return;
+            }
+
+            const recommendation = hairRecommendations[hairType];
+            
+            let html = `
+                <h4>Recomendaciones para tu cabello</h4>
+                <p><strong>Tipo:</strong> ${hairType.charAt(0).toUpperCase() + hairType.slice(1)} - ${hairColor.charAt(0).toUpperCase() + hairColor.slice(1)}</p>
+                <p><strong>🧴 Cuidado:</strong> ${recommendation.cuidado}</p>
+                <p><strong>✂️ Corte recomendado:</strong> ${recommendation.corte}</p>
+                <p><strong>💍 Accesorios ideales:</strong> ${recommendation.accesorios}</p>
+                <p><strong>💡 Tips profesionales:</strong> ${recommendation.tips}</p>
+                ${getHairColorTip(hairColor)}
+            `;
+            
+            resultDiv.innerHTML = html;
+            resultDiv.style.display = 'block';
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Show face shape recommendations
+        function showFaceRecommendations() {
+            const faceShape = document.getElementById('face-shape').value;
+            const resultDiv = document.getElementById('face-result');
+            
+            if (!faceShape) {
+                alert('Por favor, selecciona tu tipo de rostro.');
+                return;
+            }
+
+            const recommendation = faceRecommendations[faceShape];
+            
+            let html = `
+                <h4>Recomendaciones para tu rostro ${faceShape}</h4>
+                <p><strong>💇 Peinados ideales:</strong> ${recommendation.peinado}</p>
+                <p><strong>💖 Forma de cejas:</strong> ${recommendation.cejas}</p>
+                <p><strong>💄 Maquillaje que te favorece:</strong> ${recommendation.maquillaje}</p>
+            `;
+            
+            resultDiv.innerHTML = html;
+            resultDiv.style.display = 'block';
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Show skincare recommendations
+        function showSkincareRecommendations() {
+            const skinType = document.getElementById('skin-type').value;
+            const resultDiv = document.getElementById('skincare-result');
+            
+            if (!skinType) {
+                alert('Por favor, selecciona tu tipo de piel.');
+                return;
+            }
+
+            const recommendation = skincareRecommendations[skinType];
+            
+            let html = `
+                <h4>Rutina para piel ${skinType}</h4>
+                <p><strong>🧴 Rutina recomendada:</strong> ${recommendation.rutina}</p>
+                <p><strong>🌿 Productos recomendados:</strong> ${recommendation.productos}</p>
+                <p><strong>💧 Consejos extra:</strong> ${recommendation.consejos}</p>
+                <p><strong>⚠️ Qué evitar:</strong> ${recommendation.evitar}</p>
+            `;
+            
+            resultDiv.innerHTML = html;
+            resultDiv.style.display = 'block';
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Show makeup recommendations
+        function showMakeupRecommendations() {
+            const occasion = document.getElementById('makeup-occasion').value;
+            const resultDiv = document.getElementById('makeup-result');
+            
+            if (!occasion) {
+                alert('Por favor, selecciona una ocasión.');
+                return;
+            }
+
+            const recommendation = makeupRecommendations[occasion];
+            
+            let html = `
+                <h4>Maquillaje para ${occasion}</h4>
+                <p><strong>🎨 Estilo:</strong> ${recommendation.estilo}</p>
+                <p><strong>💄 Productos recomendados:</strong> ${recommendation.productos}</p>
+                <p><strong>🎨 Tonos ideales:</strong> ${recommendation.tonos}</p>
+                <p><strong>⏳ Tips de duración:</strong> ${recommendation.duracion}</p>
+            `;
+            
+            resultDiv.innerHTML = html;
+            resultDiv.style.display = 'block';
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Helper function for hair color tips
+        function getHairColorTip(color) {
+            const tips = {
+                natural: "💡 Mantén tu color natural con productos que realcen los reflejos.",
+                rubio: "💡 Usa shampoo morado para neutralizar tonos amarillentos.",
+                castano: "💡 Aplica mascarillas con miel para dar brillo a tus reflejos.",
+                negro: "💡 Usa productos sin sulfatos para evitar que el color se desvanezca.",
+                rojo: "💡 Lava con agua fría para mantener la intensidad del color.",
+                teñido: "💡 Usa productos específicos para cabello teñido y evita el cloro de piscinas."
+            };
+            return tips[color] || "";
+        }
+    </script>
+</body>
+</html>
