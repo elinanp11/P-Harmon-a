@@ -399,32 +399,8 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="main-header">
-        <div class="header-container">
-            <a href="../index.html" class="logo">
-                <i class="fas fa-spa"></i>
-                <span>P-Harmonia</span>
-            </a>
-            <nav class="main-nav">
-                <ul class="nav-links">
-                    <li><a href="../index.html">Inicio</a></li>
-                    <li><a href="belleza.html" class="active">Belleza</a></li>
-                    <li><a href="comunidad.html">Comunidad</a></li>
-                    <li><a href="fitness-personalizado.html">Fitness</a></li>
-                    <li><a href="finanzas.html">Finanzas</a></li>
-                    <li><a href="moda.html">Moda</a></li>
-                </ul>
-                <div class="auth-buttons" id="authButtons">
-                    <a href="pages/login.html" class="btn btn-outline">Iniciar Sesión</a>
-                    <a href="pages/register.html" class="btn btn-primary">Registrarse</a>
-                </div>
-            </nav>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </header>
+    <!-- Header Component -->
+    <!--#include file="components/header.html" -->
 
     <div class="container">
         <header class="beauty-header" data-aos="fade-up">
@@ -559,49 +535,8 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="main-footer">
-        <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="../index.html" class="footer-logo">
-                        <i class="fas fa-spa"></i>
-                        <span>P-Harmonia</span>
-                    </a>
-                    <p>Tu espacio de bienestar y belleza personalizado.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h3>Explorar</h3>
-                    <ul>
-                        <li><a href="belleza.html">Belleza</a></li>
-                        <li><a href="moda.html">Moda</a></li>
-                        <li><a href="fitness-personalizado.html">Fitness</a></li>
-                        <li><a href="finanzas.html">Finanzas</a></li>
-                        <li><a href="comunidad.html">Comunidad</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h3>Contacto</h3>
-                    <p><i class="fas fa-envelope"></i> info@pharmonia.com</p>
-                    <p><i class="fas fa-phone"></i> +1 234 567 890</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 P-Harmonia. Todos los derechos reservados.</p>
-                <div class="footer-legal">
-                    <a href="#">Términos de uso</a>
-                    <a href="#">Política de privacidad</a>
-                    <a href="#">Cookies</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Component -->
+    <!--#include file="components/footer.html" -->
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -610,29 +545,6 @@
         AOS.init({
             duration: 800,
             once: true
-        });
-
-        // Mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-            const mainNav = document.querySelector('.main-nav');
-            
-            if (mobileMenuToggle) {
-                mobileMenuToggle.addEventListener('click', function() {
-                    mainNav.classList.toggle('active');
-                    this.setAttribute('aria-expanded', 
-                        this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
-                    );
-                });
-            }
-            
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function(event) {
-                if (!mainNav.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
-                    mainNav.classList.remove('active');
-                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                }
-            });
         });
 
         // Hair care recommendations
